@@ -1,0 +1,97 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
+| Date         : Mon Jun 11 17:23:47 2018
+| Host         : DESKTOP-9ODFEVG running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file LC3Zybo_top_control_sets_placed.rpt
+| Design       : LC3Zybo_top
+| Device       : xc7z010
+----------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    30 |
+| Unused register locations in slices containing registers |   106 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |            1262 |          316 |
+| No           | No                    | Yes                    |              38 |           15 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |             264 |          187 |
+| Yes          | No                    | Yes                    |              74 |           46 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++---------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+------------------+----------------+
+|                                Clock Signal                               |                                           Enable Signal                                           |                              Set/Reset Signal                             | Slice Load Count | Bel Load Count |
++---------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+------------------+----------------+
+|  Inst_student_code/Inst_lc3_computer/lc3_mux/ram_reg_1_7_2                |                                                                                                   |                                                                           |                1 |              1 |
+|  Inst_student_code/Inst_lc3_computer/lc3_mux/ram_reg_1_7                  |                                                                                                   |                                                                           |                1 |              1 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/jclk_BUFG                         | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/gen_7seg_detect[1].Inst_sample_tick/Inst_timer/_n0015<16>1 |                                                                           |                1 |              1 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/jclk_BUFG                         | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/gen_7seg_detect[0].Inst_sample_tick/Inst_timer/_n0015<16>1 |                                                                           |                1 |              1 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/jclk_BUFG                         | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/gen_7seg_detect[3].Inst_sample_tick/Inst_timer/_n0015<16>1 |                                                                           |                1 |              1 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/jclk_BUFG                         | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/gen_7seg_detect[2].Inst_sample_tick/Inst_timer/_n0015<16>1 |                                                                           |                1 |              1 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainSerial/jclk_tick                            |                                                                           |                1 |              2 |
+|  Inst_student_code/Inst_lc3_computer/lc3_mux/E[0]                         |                                                                                                   |                                                                           |                1 |              3 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          |                                                                                                   | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainSerial/fromPCReg[0] |                3 |              4 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          |                                                                                                   | Inst_ZyboVIOSE_wrapper/reset                                              |                4 |              4 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/rx_fifo/_n0245_inv                                         | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainSerial/fromPCReg[0] |                2 |              4 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/tx_fifo/_n0256_inv                                         | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainSerial/fromPCReg[0] |                2 |              4 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_student_code/Inst_lc3_computer/lc3_mux/lc3_1/_n1366_inv                                      |                                                                           |                2 |              5 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/rx_fifo/_n0186_inv                                         | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainSerial/fromPCReg[0] |                1 |              8 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/rx_fifo/_n0218_inv                                         | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainSerial/fromPCReg[0] |                4 |              8 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/rx_fifo/_n0202_inv                                         | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainSerial/fromPCReg[0] |                7 |              8 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/rx_fifo/_n0234_inv                                         | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainSerial/fromPCReg[0] |                3 |              8 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainSerial/UPDATE_BUFG | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainSerial/SEL                                  |                                                                           |                2 |             11 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainSerial/DRCK_BUFG   |                                                                                                   |                                                                           |                3 |             11 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainSerial/update_tick                          |                                                                           |                2 |             11 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_student_code/Inst_lc3_computer/lc3_mux/lc3_1/_n1331_inv                                      |                                                                           |               16 |             16 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_student_code/Inst_lc3_computer/lc3_mux/lc3_1/_n1213_inv                                      |                                                                           |               12 |             16 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_student_code/Inst_lc3_computer/lc3_mux/lc3_1/_n1161_inv                                      |                                                                           |                7 |             17 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          |                                                                                                   | Inst_ZyboVIOSE_wrapper/counter_reg[0]                                     |                8 |             30 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_student_code/lc3_debug_1/hand_clk_db/clk_enable                                              | Inst_ZyboVIOSE_wrapper/reset                                              |               27 |             34 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainIO/DRCK_BUFG       |                                                                                                   |                                                                           |               23 |             48 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainIO/UPDATE_BUFG     | Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/Inst_jtag_chainIO/SEL                                      |                                                                           |               17 |             48 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/jclk_BUFG                         |                                                                                                   |                                                                           |               39 |            107 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          | Inst_student_code/Inst_lc3_computer/lc3_mux/lc3_1/_n1165_inv                                      |                                                                           |              124 |            134 |
+|  Inst_ZyboVIOSE_wrapper/Inst_ZyboVIO_SE/clk_BUFG                          |                                                                                                   |                                                                           |              259 |           1130 |
++---------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------+------------------+----------------+
+
+
++--------+-----------------------+
+| Fanout | Number of ControlSets |
++--------+-----------------------+
+| 1      |                     6 |
+| 2      |                     1 |
+| 3      |                     1 |
+| 4      |                     4 |
+| 5      |                     1 |
+| 8      |                     4 |
+| 11     |                     3 |
+| 16+    |                    10 |
++--------+-----------------------+
+
+
