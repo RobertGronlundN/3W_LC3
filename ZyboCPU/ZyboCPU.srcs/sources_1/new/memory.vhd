@@ -8,12 +8,13 @@ entity memory is
         DATA_WIDTH: integer := 16
     );
     port(
-        r_clk     : in    std_logic;
-        r_rw_en   : in    std_logic;
-        r_addr    : in    std_logic_vector(ADDR_WIDTH-1 downto 0);
-        r_din     : in    std_logic_vector(DATA_WIDTH-1 downto 0);
-        r_dout    : out   std_logic_vector(DATA_WIDTH-1 downto 0);
-        r_mem_en  : in    std_logic
+        clk     : in    std_logic;
+        RE      : in    std_logic;
+        WE      : in    std_logic;
+        addr    : in    std_logic_vector(ADDR_WIDTH-1 downto 0);
+        din     : in    std_logic_vector(DATA_WIDTH-1 downto 0);
+        dout    : out   std_logic_vector(DATA_WIDTH-1 downto 0);
+        mem_en  : in    std_logic
     );
 end memory;
 
@@ -325,14 +326,14 @@ architecture beh_arch of memory is
     -- X"5020", X"54a0", X"2402", X"2002", X"7096", X"fe00", X"0005",
     
 begin
-    process (r_clk)
+    process (clk, WE, mem_en)
     begin
-        if (r_clk'event and r_clk = '1') then
-            if (r_rw_en = '1' and r_mem_en = '1') then
-                ram(to_integer(unsigned(r_addr))) <= r_din;
+        if (clk'event and clk = '1') then
+            if (WE = '1' and mem_en = '1') then
+                ram(to_integer(unsigned(addr))) <= din;
                 end if;
-            addr_reg <= r_addr;
+            addr_reg <= addr;
             end if;
     end process;
-    r_dout <= ram(to_integer(unsigned(addr_reg)));
+    dout <= ram(to_integer(unsigned(addr_reg)));
 end beh_arch;

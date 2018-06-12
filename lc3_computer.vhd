@@ -7,7 +7,7 @@ use IEEE.numeric_std.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -147,6 +147,9 @@ begin
    led(5) <= '0'; 
    led(6) <= '0'; 
    led(7) <= '0'; 
+   
+   --rx_rd <= psw(0);
+   --tx_wr <= psw(1);
 
    --Physical leds on the Zybo board (active high)
    pled(0) <= NOT rx_empty;
@@ -249,14 +252,94 @@ begin
 
     lc3_mem: entity work.memory
     port map (
-        r_clk   =>  clk,
-        r_rw_en    =>  rw_en,
-        r_addr  =>  address,
-        r_din   =>  data_out,
-        r_dout  =>  ram_out,
-        r_mem_en    =>  mem_en
+        clk     =>  clk,
+        RE      =>  RE,
+        WE      =>  WE,
+        addr =>  address,
+        din     =>  data_out,
+        dout    =>  ram_out,
+        mem_en  =>  mem_en
         );
 
+
+---------------------------------------------------------------------------------------  
+-- PHYSICAL UART                    ---------------------------------------------------       
+---------------------------------------------------------------------------------------  
+        
+        lc3_uart: entity work.uart
+        port map (
+            clk     =>  clk,
+            reset   =>  reset,
+            r_data  =>  uart_r_data,
+            w_data  =>  data_out,
+            rd_uart =>  rd_uart,
+            wr_uart =>  wr_uart,
+            rx      =>  rx        
+            );
+
+---------------------------------------------------------------------------------------
+-- ADDRESS CONTROL LOGIC            ---------------------------------------------------
+---------------------------------------------------------------------------------------  
+
+process (address, RE, WE)
+begin
+    
+    rx_rd <= '0';                                   -- Resest rx_rd to the default value '0' every clock cycle
+    tx_wr <= '0';                                   -- Reset tx_wr to the default value '0' every clock cycle
+
+    case to_integer(unsigned(address)) is
+        when 16#0000# to 16#fdff# => 
+            mux_select <= "0000";
+            mem_en <= '1';
+        when 16#FE0A# => mux_select <= "0001";    
+            
+        -- STD IN VIRTUAL UART SIGNALS
+        when 16#FE00# => mux_select <= "0011";      -- Enables mux output to be the status signal from FIFO STD IN
+        when 16#FE02# => 
+            if rx_empty = '0' then
+                rx_rd <= RE;
+                mux_select <= "0010";
+            end if;
+            
+        -- STD OUT VIRTUAL UART SIGNALS
+        when 16#FE04# => mux_select <= "0100";      -- Enables mux output to be the status signal from FIFO STD OUT
+        when 16#FE06# =>
+            if tx_full = '0' then
+                tx_wr <= WE;
+            end if;
+        
+        when others => 
+            mem_en <= '1'; 
+            mux_select <= "0000";               
+    end case;
+end process;
+
+---------------------------------------------------------------------------------------  
+-- MULTIPLEXER CONTROL SWITCH       ---------------------------------------------------
+---------------------------------------------------------------------------------------  
+
+    process (mux_select)
+    begin
+        case mux_select is
+            when "0000" =>  data_in <= ram_out;                     -- Enables read from memory
+            when "0001" =>  data_in <= sw_reg;                      -- Enables read from switches
+            when "0010" =>  data_in <= x"00" & rx_data;             -- Reads Data from FIFO.
+            when "0011" =>  data_in <= (NOT rx_empty) & "000" & x"000";   -- Reads RX_EMPTY signal from virtual UART
+            when "0100" =>  data_in <= (NOT tx_full) & "000" & x"000";    -- Reads TX_FULL signal from virtual UART
+            when "1111" =>  data_in <= x"0000";
+            when others =>  data_in <= ram_out;                     -- Else, no data is sent through the mux
+        end case;
+    end process;
+
+    tx_data <= data_out(7 downto 0);
+---------------------------------------------------------------------------------------  
+-- END OF LC3_COMPUTER BEHAVIORAL ARCHITECTURE
+---------------------------------------------------------------------------------------  
+
+end Behavioral;
+
+
+        
 ---------------------------------------------------------------------------------------  
 -- ADDRESS CONTROL LOGIC OLD VERSION    -----------------------------------------------
 ---------------------------------------------------------------------------------------  
@@ -275,69 +358,6 @@ begin
 --        tx_full => tx_full,
 --        tx_wr => tx_wr
 --        );
-
----------------------------------------------------------------------------------------
--- ADDRESS CONTROL LOGIC            ---------------------------------------------------
----------------------------------------------------------------------------------------  
-
-process (address, RE, WE)
-begin
-    case to_integer(unsigned(address)) is
-        when 16#0000# to 16#fdff# => mux_select <= "0000";
-            rw_en <= '0';
-            mem_en <= '1';
-        when 16#FE0A# => mux_select <= "0001";
-        when 16#FE12# => if (WE = '1') then rw_en <= '1'; end if;
-        
-        -- STD IN VIRTUAL UART SIGNALS
-        when 16#FE00# => mux_select <= "0011";      -- Enables mux output to be the status signal from FIFO STD IN
-        when 16#FE02# => 
-            if (NOT rx_empty = '1' and RE = '1') then
-                rx_rd <= '1';
-                mux_select <= "0010";
-            else 
-                rx_rd <= '0';
-            end if;
-            
-        -- STD OUT VIRTUAL UART SIGNALS
-        when 16#FE04# => mux_select <= "0100";      -- Enables mux output to be the status signal from FIFO STD OUT
-        when 16#FE06# =>
-            if (NOT tx_full = '1' and WE = '1') then
-                tx_wr <= '1';
-                mux_select <= "0101";
-            else
-                tx_wr <= '0';
-            end if;
-        
-        when others => mem_en <= '0'; mux_select <= "0000";               
-    end case;
-end process;
-
----------------------------------------------------------------------------------------  
--- MULTIPLEXER CONTROL SWITCH       ---------------------------------------------------
----------------------------------------------------------------------------------------  
-
-    process (mux_select)
-    begin
-        case mux_select is
-            when "0000" =>  data_in <= ram_out;                     -- Enables read from memory
-            when "0001" =>  data_in <= sw_reg;                      -- Enables read from switches
-            when "0010" =>  data_in <= x"00" & rx_data;             -- Reads Data from FIFO.
-            when "0011" =>  data_in <= x"000" & "000" & rx_empty;   -- Reads RX_EMPTY signal from virtual UART
-            when "0100" =>  data_in <= x"000" & "000" & tx_full;    -- Reads TX_FULL signal from virtual UART
-            when "0101" =>  tx_data <= data_out(7 downto 0);        -- Writes the bits from 7 to 0 (one byte) to TX_data (VIRTUAL UART INPUT)
-            when others =>  data_in <= X"0000";                     -- Else, no data is sent through the mux
-        end case;
-    end process;
-
----------------------------------------------------------------------------------------  
--- END OF LC3_COMPUTER BEHAVIORAL ARCHITECTURE
----------------------------------------------------------------------------------------  
-
-end Behavioral;
-
-
-
 
 
 
