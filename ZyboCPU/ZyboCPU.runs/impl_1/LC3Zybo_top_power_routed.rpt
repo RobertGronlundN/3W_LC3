@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Mon Jun 11 17:24:14 2018
+| Date             : Tue Jun 12 11:07:29 2018
 | Host             : DESKTOP-9ODFEVG running 64-bit major release  (build 9200)
 | Command          : report_power -file LC3Zybo_top_power_routed.rpt -pb LC3Zybo_top_power_summary_routed.pb -rpx LC3Zybo_top_power_routed.rpx
 | Design           : LC3Zybo_top
@@ -33,7 +33,7 @@ Table of Contents
 | Total On-Chip Power (W)  | 0.250        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.153        |
+| Dynamic (W)              | 0.154        |
 | Device Static (W)        | 0.096        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 82.1         |
@@ -52,17 +52,17 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.004 |        5 |       --- |             --- |
-| Slice Logic             |     0.009 |     5217 |       --- |             --- |
-|   LUT as Logic          |     0.007 |     2995 |     17600 |           17.02 |
+| Clocks                  |     0.005 |        5 |       --- |             --- |
+| Slice Logic             |     0.007 |     5615 |       --- |             --- |
+|   LUT as Logic          |     0.006 |     3100 |     17600 |           17.61 |
 |   CARRY4                |    <0.001 |      208 |      4400 |            4.73 |
-|   Register              |    <0.001 |     1638 |     35200 |            4.65 |
+|   Register              |    <0.001 |     1904 |     35200 |            5.41 |
 |   LUT as Shift Register |    <0.001 |       39 |      6000 |            0.65 |
-|   F7/F8 Muxes           |    <0.001 |       99 |     17600 |            0.56 |
 |   BUFG                  |    <0.001 |        5 |        32 |           15.63 |
-|   Others                |     0.000 |      192 |       --- |             --- |
-| Signals                 |     0.009 |     3939 |       --- |             --- |
-| Block RAM               |     0.023 |       32 |        60 |           53.33 |
+|   F7/F8 Muxes           |    <0.001 |      123 |     17600 |            0.70 |
+|   Others                |     0.000 |      191 |       --- |             --- |
+| Signals                 |     0.008 |     4235 |       --- |             --- |
+| Block RAM               |     0.025 |       32 |        60 |           53.33 |
 | PLL                     |     0.106 |        1 |         2 |           50.00 |
 | DSPs                    |    <0.001 |        1 |        80 |            1.25 |
 | I/O                     |     0.001 |       13 |       100 |           13.00 |
@@ -87,7 +87,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.003 |       0.002 |      0.001 |
+| Vccbram   |       1.000 |     0.004 |       0.002 |      0.001 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |
@@ -156,15 +156,14 @@ Table of Contents
 +---------------------------------+-----------+
 | Name                            | Power (W) |
 +---------------------------------+-----------+
-| LC3Zybo_top                     |     0.153 |
-|   Inst_ZyboVIOSE_wrapper        |     0.108 |
-|     Inst_ZyboVIO_SE             |     0.108 |
-|   Inst_student_code             |     0.043 |
-|     Inst_lc3_computer           |     0.042 |
-|       lc3_logic                 |    <0.001 |
-|       lc3_mem                   |     0.024 |
-|       lc3_mux                   |     0.018 |
-|         lc3_1                   |     0.018 |
+| LC3Zybo_top                     |     0.154 |
+|   Inst_ZyboVIOSE_wrapper        |     0.109 |
+|     Inst_ZyboVIO_SE             |     0.109 |
+|   Inst_student_code             |     0.042 |
+|     Inst_lc3_computer           |     0.041 |
+|       lc3_mem                   |     0.026 |
+|       lc3_mux                   |     0.016 |
+|         lc3_1                   |     0.016 |
 |     lc3_debug_1                 |    <0.001 |
 |       BtnToggle_1               |    <0.001 |
 |       hand_clk_db               |    <0.001 |

@@ -33,6 +33,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity logic is
     Port ( addr : in STD_LOGIC_VECTOR (15 downto 0);
+           clk      :   in std_logic;
            RE       :   in std_logic;
            WE       :   in std_logic;
            mux_select : out std_logic_vector(3 downto 0);
@@ -48,8 +49,9 @@ end logic;
 architecture Behavioral of logic is
     
 begin
-    process (addr)
+    process (addr, RE, WE)
     begin
+    --if (clk'event and clk = '1') then
         case to_integer(unsigned(addr)) is
         
             when 16#0000# to 16#fdff# => mux_select <= "0000";
@@ -69,6 +71,8 @@ begin
                 if (NOT(rx_empty) = '1' and RE = '1') then
                     rx_rd <= '1';
                     mux_select <= "0010";
+                else 
+                    rx_rd <= '0';
                 end if;
                 
             -- STD OUT VIRTUAL UART SIGNALS
@@ -77,13 +81,15 @@ begin
                 if (NOT(tx_full) = '1' and WE = '1') then
                     tx_wr <= '1';
                     mux_select <= "0101";
+                else
+                    tx_wr <= '0';
                 end if;
             
             when others =>
                 mem_en <= '0';
                 mux_select <= "0000";               
         end case;
-        
+    --end if;
     end process;
     
 end Behavioral;

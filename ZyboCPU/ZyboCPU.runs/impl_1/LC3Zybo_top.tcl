@@ -60,100 +60,13 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
-
-start_step init_design
-set ACTIVE_STEP init_design
-set rc [catch {
-  create_msg_db init_design.pb
-  create_project -in_memory -part xc7z010clg400-1
-  set_property board_part digilentinc.com:zybo:part0:1.0 [current_project]
-  set_property design_mode GateLvl [current_fileset]
-  set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.cache/wt} [current_project]
-  set_property parent.project_path {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.xpr} [current_project]
-  set_property ip_output_repo {{C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.cache/ip}} [current_project]
-  set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet {{C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.runs/synth_1/LC3Zybo_top.dcp}}
-  read_edif {{C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3.ngc}}
-  read_edif {{C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboVIO_SE.ngc}}
-  read_xdc {{C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/constrs_1/new/ZyboCons.xdc}}
-  link_design -top LC3Zybo_top -part xc7z010clg400-1
-  close_msg_db -file init_design.pb
-} RESULT]
-if {$rc} {
-  step_failed init_design
-  return -code error $RESULT
-} else {
-  end_step init_design
-  unset ACTIVE_STEP 
-}
-
-start_step opt_design
-set ACTIVE_STEP opt_design
-set rc [catch {
-  create_msg_db opt_design.pb
-  opt_design 
-  write_checkpoint -force LC3Zybo_top_opt.dcp
-  create_report "impl_1_opt_report_drc_0" "report_drc -file LC3Zybo_top_drc_opted.rpt -pb LC3Zybo_top_drc_opted.pb -rpx LC3Zybo_top_drc_opted.rpx"
-  close_msg_db -file opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed opt_design
-  return -code error $RESULT
-} else {
-  end_step opt_design
-  unset ACTIVE_STEP 
-}
-
-start_step place_design
-set ACTIVE_STEP place_design
-set rc [catch {
-  create_msg_db place_design.pb
-  implement_debug_core 
-  place_design 
-  write_checkpoint -force LC3Zybo_top_placed.dcp
-  create_report "impl_1_place_report_io_0" "report_io -file LC3Zybo_top_io_placed.rpt"
-  create_report "impl_1_place_report_utilization_0" "report_utilization -file LC3Zybo_top_utilization_placed.rpt -pb LC3Zybo_top_utilization_placed.pb"
-  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file LC3Zybo_top_control_sets_placed.rpt"
-  close_msg_db -file place_design.pb
-} RESULT]
-if {$rc} {
-  step_failed place_design
-  return -code error $RESULT
-} else {
-  end_step place_design
-  unset ACTIVE_STEP 
-}
-
-start_step route_design
-set ACTIVE_STEP route_design
-set rc [catch {
-  create_msg_db route_design.pb
-  route_design 
-  write_checkpoint -force LC3Zybo_top_routed.dcp
-  create_report "impl_1_route_report_drc_0" "report_drc -file LC3Zybo_top_drc_routed.rpt -pb LC3Zybo_top_drc_routed.pb -rpx LC3Zybo_top_drc_routed.rpx"
-  create_report "impl_1_route_report_methodology_0" "report_methodology -file LC3Zybo_top_methodology_drc_routed.rpt -pb LC3Zybo_top_methodology_drc_routed.pb -rpx LC3Zybo_top_methodology_drc_routed.rpx"
-  create_report "impl_1_route_report_power_0" "report_power -file LC3Zybo_top_power_routed.rpt -pb LC3Zybo_top_power_summary_routed.pb -rpx LC3Zybo_top_power_routed.rpx"
-  create_report "impl_1_route_report_route_status_0" "report_route_status -file LC3Zybo_top_route_status.rpt -pb LC3Zybo_top_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file LC3Zybo_top_timing_summary_routed.rpt -rpx LC3Zybo_top_timing_summary_routed.rpx -warn_on_violation "
-  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file LC3Zybo_top_incremental_reuse_routed.rpt"
-  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file LC3Zybo_top_clock_utilization_routed.rpt"
-  close_msg_db -file route_design.pb
-} RESULT]
-if {$rc} {
-  write_checkpoint -force LC3Zybo_top_routed_error.dcp
-  step_failed route_design
-  return -code error $RESULT
-} else {
-  end_step route_design
-  unset ACTIVE_STEP 
-}
 
 start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
+  open_checkpoint LC3Zybo_top_routed.dcp
+  set_property webtalk.parent_dir {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.cache/wt} [current_project]
   catch { write_mem_info -force LC3Zybo_top.mmi }
   write_bitstream -force LC3Zybo_top.bit 
   catch {write_debug_probes -quiet -force LC3Zybo_top}

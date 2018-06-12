@@ -14,9 +14,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 11100 
+INFO: Helper process launched with PID 11772 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 358.059 ; gain = 99.891
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 358.867 ; gain = 99.879
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'LC3Zybo_top' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/top.vhd:26]
 INFO: [Synth 8-638] synthesizing module 'student_code' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/student_code.vhd:38]
@@ -28,46 +28,28 @@ INFO: [Synth 8-638] synthesizing module 'memory' [C:/Users/Robert/Desktop/2. Sem
 	Parameter ADDR_WIDTH bound to: 16 - type: integer 
 	Parameter DATA_WIDTH bound to: 16 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'memory' (2#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/memory.vhd:20]
-INFO: [Synth 8-638] synthesizing module 'logic' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/logic.vhd:46]
-WARNING: [Synth 8-614] signal 'we_logic' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/logic.vhd:49]
-WARNING: [Synth 8-614] signal 'rx_empty' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/logic.vhd:49]
-WARNING: [Synth 8-614] signal 're_logic' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/logic.vhd:49]
-WARNING: [Synth 8-3848] Net rd_uart in module/entity logic does not have driver. [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/logic.vhd:39]
-INFO: [Synth 8-256] done synthesizing module 'logic' (3#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/logic.vhd:46]
-WARNING: [Synth 8-614] signal 'ram_out' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:302]
-WARNING: [Synth 8-614] signal 'sw_reg' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:302]
-WARNING: [Synth 8-614] signal 'rx_data' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:302]
-WARNING: [Synth 8-614] signal 'rx_empty' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:302]
-WARNING: [Synth 8-614] signal 'tx_full' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:302]
-WARNING: [Synth 8-3848] Net rx_rd in module/entity lc3_computer does not have driver. [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:35]
-WARNING: [Synth 8-3848] Net tx_data in module/entity lc3_computer does not have driver. [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:37]
-WARNING: [Synth 8-3848] Net tx_wr in module/entity lc3_computer does not have driver. [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:38]
-INFO: [Synth 8-256] done synthesizing module 'lc3_computer' (4#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:56]
+WARNING: [Synth 8-614] signal 'rx_empty' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:283]
+WARNING: [Synth 8-614] signal 'tx_full' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:283]
+WARNING: [Synth 8-614] signal 'ram_out' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:320]
+WARNING: [Synth 8-614] signal 'sw_reg' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:320]
+WARNING: [Synth 8-614] signal 'rx_data' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:320]
+WARNING: [Synth 8-614] signal 'rx_empty' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:320]
+WARNING: [Synth 8-614] signal 'tx_full' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:320]
+WARNING: [Synth 8-614] signal 'data_out' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:320]
+INFO: [Synth 8-256] done synthesizing module 'lc3_computer' (3#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:56]
 INFO: [Synth 8-638] synthesizing module 'lc3_debug' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_debug.vhd:29]
 INFO: [Synth 8-638] synthesizing module 'BtnToggle' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/BtnToggle.vhd:24]
-INFO: [Synth 8-256] done synthesizing module 'BtnToggle' (5#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/BtnToggle.vhd:24]
+INFO: [Synth 8-256] done synthesizing module 'BtnToggle' (4#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/BtnToggle.vhd:24]
 INFO: [Synth 8-638] synthesizing module 'debounce' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/debounce.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'debounce' (6#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/debounce.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'lc3_debug' (7#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_debug.vhd:29]
-INFO: [Synth 8-256] done synthesizing module 'student_code' (8#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/student_code.vhd:38]
+INFO: [Synth 8-256] done synthesizing module 'debounce' (5#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/debounce.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'lc3_debug' (6#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_debug.vhd:29]
+INFO: [Synth 8-256] done synthesizing module 'student_code' (7#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/student_code.vhd:38]
 INFO: [Synth 8-638] synthesizing module 'zyboviose_wrapper' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/zybovios_wrapper.vhd:32]
 INFO: [Synth 8-637] synthesizing blackbox instance 'Inst_ZyboVIO_SE' of component 'ZyboVIO_SE' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/zybovios_wrapper.vhd:58]
-INFO: [Synth 8-256] done synthesizing module 'zyboviose_wrapper' (9#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/zybovios_wrapper.vhd:32]
-INFO: [Synth 8-256] done synthesizing module 'LC3Zybo_top' (10#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/top.vhd:26]
-WARNING: [Synth 8-3331] design logic has unconnected port rd_uart
-WARNING: [Synth 8-3331] design logic has unconnected port tx_full
-WARNING: [Synth 8-3331] design lc3_computer has unconnected port rx_rd
-WARNING: [Synth 8-3331] design lc3_computer has unconnected port tx_data[7]
-WARNING: [Synth 8-3331] design lc3_computer has unconnected port tx_data[6]
-WARNING: [Synth 8-3331] design lc3_computer has unconnected port tx_data[5]
-WARNING: [Synth 8-3331] design lc3_computer has unconnected port tx_data[4]
-WARNING: [Synth 8-3331] design lc3_computer has unconnected port tx_data[3]
-WARNING: [Synth 8-3331] design lc3_computer has unconnected port tx_data[2]
-WARNING: [Synth 8-3331] design lc3_computer has unconnected port tx_data[1]
-WARNING: [Synth 8-3331] design lc3_computer has unconnected port tx_data[0]
-WARNING: [Synth 8-3331] design lc3_computer has unconnected port tx_wr
+INFO: [Synth 8-256] done synthesizing module 'zyboviose_wrapper' (8#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/zybovios_wrapper.vhd:32]
+INFO: [Synth 8-256] done synthesizing module 'LC3Zybo_top' (9#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/top.vhd:26]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 445.090 ; gain = 186.922
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 444.336 ; gain = 185.348
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -77,7 +59,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 445.090 ; gain = 186.922
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 444.336 ; gain = 185.348
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -93,29 +75,35 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 767.246 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 767.328 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 767.246 ; gain = 509.078
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 767.328 ; gain = 508.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 767.246 ; gain = 509.078
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 767.328 ; gain = 508.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 767.246 ; gain = 509.078
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 767.328 ; gain = 508.340
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "data_in" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "tx_data" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "tick" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-327] inferring latch for variable 'mux_select_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/logic.vhd:53]
-WARNING: [Synth 8-327] inferring latch for variable 'mem_en_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/logic.vhd:55]
-WARNING: [Synth 8-327] inferring latch for variable 'rw_en_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/logic.vhd:54]
+WARNING: [Synth 8-327] inferring latch for variable 'rx_rd_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:296]
+WARNING: [Synth 8-327] inferring latch for variable 'tx_data_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:328]
+WARNING: [Synth 8-327] inferring latch for variable 'tx_wr_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:306]
+WARNING: [Synth 8-327] inferring latch for variable 'data_in_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:323]
+WARNING: [Synth 8-327] inferring latch for variable 'mux_select_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:286]
+WARNING: [Synth 8-327] inferring latch for variable 'rw_en_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:253]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_en_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:257]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 767.246 ; gain = 509.078
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 767.328 ; gain = 508.340
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -143,11 +131,12 @@ Detailed RTL Component Info :
 	   2 Input     21 Bit        Muxes := 80    
 	   2 Input     16 Bit        Muxes := 4     
 	   2 Input      5 Bit        Muxes := 1     
-	   7 Input      4 Bit        Muxes := 1     
+	   8 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
 	   7 Input      2 Bit        Muxes := 10    
-	   7 Input      1 Bit        Muxes := 4     
-	   2 Input      1 Bit        Muxes := 31    
+	   8 Input      1 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 33    
+	   7 Input      1 Bit        Muxes := 2     
 	   4 Input      1 Bit        Muxes := 30    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -162,15 +151,14 @@ Detailed RTL Component Info :
 	               16 Bit    Registers := 1     
 +---RAMs : 
 	            1024K Bit         RAMs := 1     
-Module logic 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   7 Input      4 Bit        Muxes := 1     
-	   7 Input      1 Bit        Muxes := 4     
 Module lc3_computer 
 Detailed RTL Component Info : 
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 2     
+	   8 Input      4 Bit        Muxes := 1     
+	   8 Input      1 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 2     
+	   7 Input      1 Bit        Muxes := 2     
 Module BtnToggle 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -226,21 +214,11 @@ INFO: [Synth 8-5546] ROM "tick" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "tick" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "tick" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "tick" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-3331] design student_code has unconnected port rx_rd
-WARNING: [Synth 8-3331] design student_code has unconnected port tx_data[7]
-WARNING: [Synth 8-3331] design student_code has unconnected port tx_data[6]
-WARNING: [Synth 8-3331] design student_code has unconnected port tx_data[5]
-WARNING: [Synth 8-3331] design student_code has unconnected port tx_data[4]
-WARNING: [Synth 8-3331] design student_code has unconnected port tx_data[3]
-WARNING: [Synth 8-3331] design student_code has unconnected port tx_data[2]
-WARNING: [Synth 8-3331] design student_code has unconnected port tx_data[1]
-WARNING: [Synth 8-3331] design student_code has unconnected port tx_data[0]
-WARNING: [Synth 8-3331] design student_code has unconnected port tx_wr
 RAM Pipeline Warning: Read Address Register Found For RAM Inst_student_code/Inst_lc3_computer/lc3_mem/ram_reg. We will not be able to pipeline it. This may degrade performance. 
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Inst_student_code/Inst_lc3_computer/lc3_logic/mux_select_reg[3] )
-WARNING: [Synth 8-3332] Sequential element (Inst_student_code/Inst_lc3_computer/lc3_logic/mux_select_reg[3]) is unused and will be removed from module LC3Zybo_top.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Inst_student_code/Inst_lc3_computer/mux_select_reg[3] )
+WARNING: [Synth 8-3332] Sequential element (Inst_student_code/Inst_lc3_computer/mux_select_reg[3]) is unused and will be removed from module LC3Zybo_top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 767.246 ; gain = 509.078
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 767.328 ; gain = 508.340
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -267,13 +245,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 808.137 ; gain = 549.969
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 806.105 ; gain = 547.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 809.113 ; gain = 550.945
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 807.168 ; gain = 548.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -315,7 +293,7 @@ INFO: [Synth 8-4480] The timing for the instance Inst_student_code/Inst_lc3_comp
 INFO: [Synth 8-4480] The timing for the instance Inst_student_code/Inst_lc3_computer/lc3_mem/ram_reg_1_14 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance Inst_student_code/Inst_lc3_computer/lc3_mem/ram_reg_1_15 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 833.332 ; gain = 575.164
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 831.227 ; gain = 572.238
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -341,7 +319,7 @@ INFO: [Synth 8-6064] Net n_0_0 is driving 64 big block pins (URAM, BRAM and DSP 
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 833.332 ; gain = 575.164
+Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 831.227 ; gain = 572.238
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -354,7 +332,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 833.332 ; gain = 575.164
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 831.227 ; gain = 572.238
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -366,25 +344,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 833.332 ; gain = 575.164
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 831.227 ; gain = 572.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 833.332 ; gain = 575.164
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 831.227 ; gain = 572.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 833.332 ; gain = 575.164
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 831.227 ; gain = 572.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 833.332 ; gain = 575.164
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 831.227 ; gain = 572.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -405,12 +383,12 @@ Report Cell Usage:
 |1     |ZyboVIO_SE_bbox_1 |     1|
 |2     |lc3_bbox_0        |     1|
 |3     |CARRY4            |    58|
-|4     |LUT1              |   201|
-|5     |LUT2              |    25|
+|4     |LUT1              |   203|
+|5     |LUT2              |    26|
 |6     |LUT3              |     4|
-|7     |LUT4              |    51|
-|8     |LUT5              |   182|
-|9     |LUT6              |   130|
+|7     |LUT4              |    52|
+|8     |LUT5              |   172|
+|9     |LUT6              |   137|
 |10    |RAMB36E1          |     1|
 |11    |RAMB36E1_1        |    16|
 |12    |RAMB36E1_10       |     1|
@@ -430,7 +408,7 @@ Report Cell Usage:
 |26    |RAMB36E1_9        |     1|
 |27    |FDCE              |    30|
 |28    |FDRE              |   232|
-|29    |LD                |     5|
+|29    |LD                |    31|
 |30    |IBUF              |     9|
 |31    |OBUF              |     4|
 +------+------------------+------+
@@ -439,32 +417,31 @@ Report Instance Areas:
 +------+----------------------------------+-------------------------+------+
 |      |Instance                          |Module                   |Cells |
 +------+----------------------------------+-------------------------+------+
-|1     |top                               |                         |  1022|
-|2     |  Inst_ZyboVIOSE_wrapper          |zyboviose_wrapper        |    34|
-|3     |  Inst_student_code               |student_code             |   364|
-|4     |    Inst_lc3_computer             |lc3_computer             |   147|
-|5     |      lc3_logic                   |logic                    |    42|
-|6     |      lc3_mem                     |memory                   |    32|
-|7     |      lc3_mux                     |lc3_wrapper_multiplexers |    73|
-|8     |    lc3_debug_1                   |lc3_debug                |   217|
-|9     |      BtnToggle_1                 |BtnToggle                |    54|
-|10    |      hand_clk_db                 |debounce_7               |    81|
-|11    |      sys_halt_db                 |debounce_8               |    81|
-|12    |  \my_debounce[0].Inst_debounce1  |debounce                 |    77|
-|13    |  \my_debounce[0].Inst_debounce2  |debounce_0               |    76|
-|14    |  \my_debounce[1].Inst_debounce1  |debounce_1               |    77|
-|15    |  \my_debounce[1].Inst_debounce2  |debounce_2               |    77|
-|16    |  \my_debounce[2].Inst_debounce1  |debounce_3               |    76|
-|17    |  \my_debounce[2].Inst_debounce2  |debounce_4               |    76|
-|18    |  \my_debounce[3].Inst_debounce1  |debounce_5               |    76|
-|19    |  \my_debounce[3].Inst_debounce2  |debounce_6               |    76|
+|1     |top                               |                         |  1049|
+|2     |  Inst_ZyboVIOSE_wrapper          |zyboviose_wrapper        |    35|
+|3     |  Inst_student_code               |student_code             |   389|
+|4     |    Inst_lc3_computer             |lc3_computer             |   157|
+|5     |      lc3_mem                     |memory                   |    63|
+|6     |      lc3_mux                     |lc3_wrapper_multiplexers |    61|
+|7     |    lc3_debug_1                   |lc3_debug                |   232|
+|8     |      BtnToggle_1                 |BtnToggle                |    69|
+|9     |      hand_clk_db                 |debounce_7               |    81|
+|10    |      sys_halt_db                 |debounce_8               |    81|
+|11    |  \my_debounce[0].Inst_debounce1  |debounce                 |    77|
+|12    |  \my_debounce[0].Inst_debounce2  |debounce_0               |    77|
+|13    |  \my_debounce[1].Inst_debounce1  |debounce_1               |    76|
+|14    |  \my_debounce[1].Inst_debounce2  |debounce_2               |    76|
+|15    |  \my_debounce[2].Inst_debounce1  |debounce_3               |    77|
+|16    |  \my_debounce[2].Inst_debounce2  |debounce_4               |    77|
+|17    |  \my_debounce[3].Inst_debounce1  |debounce_5               |    76|
+|18    |  \my_debounce[3].Inst_debounce2  |debounce_6               |    76|
 +------+----------------------------------+-------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 833.332 ; gain = 575.164
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 831.227 ; gain = 572.238
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 15 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:27 . Memory (MB): peak = 833.332 ; gain = 253.008
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 833.332 ; gain = 575.164
+Synthesis finished with 0 errors, 0 critical warnings and 9 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:27 . Memory (MB): peak = 831.227 ; gain = 249.246
+Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 831.227 ; gain = 572.238
 INFO: [Project 1-571] Translating synthesized netlist
 Release 14.7 - ngc2edif P_INT.20171106 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
@@ -478,7 +455,7 @@ WARNING:NetListWriters:306 - Signal bus Inst_jtag_chainIO/fromPCReg[47 : 0] on
    signals.
   finished :Prep
 Writing EDIF netlist file ZyboVIO_SE.edif ...
-ngc2edif: Total memory usage is 4324320 kilobytes
+ngc2edif: Total memory usage is 4324384 kilobytes
 
 Reading core file 'C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboVIO_SE.ngc' for (cell view 'ZyboVIO_SE', library 'work')
 Parsing EDIF File [./.ngc2edfcache/ZyboVIO_SE_ngc_deee1c02.edif]
@@ -501,27 +478,27 @@ ngc2edif: Total memory usage is 4329440 kilobytes
 Reading core file 'C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3.ngc' for (cell view 'lc3', library 'work')
 Parsing EDIF File [./.ngc2edfcache/lc3_ngc_deee1c02.edif]
 Finished Parsing EDIF File [./.ngc2edfcache/lc3_ngc_deee1c02.edif]
-INFO: [Netlist 29-17] Analyzing 2776 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 2802 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Xilinx ngc2edif P_INT.20171106
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 1642 instances were transformed.
+  A total of 1668 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 151 instances
   FD => FDRE: 1001 instances
   FDC => FDCE: 6 instances
   FDE => FDRE: 339 instances
   FDP => FDPE: 2 instances
   INV => LUT1: 121 instances
-  LD => LDCE: 5 instances
+  LD => LDCE: 31 instances
   MULT_AND => LUT2: 17 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-65 Infos, 40 Warnings, 0 Critical Warnings and 0 Errors encountered.
+65 Infos, 18 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:42 . Memory (MB): peak = 846.453 ; gain = 600.219
+synth_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:42 . Memory (MB): peak = 844.777 ; gain = 598.477
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.runs/synth_1/LC3Zybo_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file LC3Zybo_top_utilization_synth.rpt -pb LC3Zybo_top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 846.453 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Jun 11 17:22:55 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 844.777 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Jun 12 11:05:43 2018...
