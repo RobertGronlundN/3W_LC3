@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Tue Jun 12 16:03:46 2018
+| Date             : Thu Jun 14 13:40:04 2018
 | Host             : DESKTOP-9ODFEVG running 64-bit major release  (build 9200)
 | Command          : report_power -file LC3Zybo_top_power_routed.rpt -pb LC3Zybo_top_power_summary_routed.pb -rpx LC3Zybo_top_power_routed.rpx
 | Design           : LC3Zybo_top
@@ -52,20 +52,20 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.004 |        5 |       --- |             --- |
-| Slice Logic             |     0.009 |     5661 |       --- |             --- |
-|   LUT as Logic          |     0.007 |     3124 |     17600 |           17.75 |
-|   Register              |    <0.001 |     1908 |     35200 |            5.42 |
+| Clocks                  |     0.005 |        5 |       --- |             --- |
+| Slice Logic             |     0.009 |     5840 |       --- |             --- |
+|   LUT as Logic          |     0.007 |     3207 |     17600 |           18.22 |
+|   Register              |    <0.001 |     1995 |     35200 |            5.67 |
 |   CARRY4                |    <0.001 |      208 |      4400 |            4.73 |
 |   LUT as Shift Register |    <0.001 |       39 |      6000 |            0.65 |
 |   F7/F8 Muxes           |    <0.001 |      123 |     17600 |            0.70 |
 |   BUFG                  |    <0.001 |        5 |        32 |           15.63 |
 |   Others                |     0.000 |      201 |       --- |             --- |
-| Signals                 |     0.010 |     4251 |       --- |             --- |
+| Signals                 |     0.010 |     4417 |       --- |             --- |
 | Block RAM               |     0.024 |       32 |        60 |           53.33 |
 | PLL                     |     0.106 |        1 |         2 |           50.00 |
 | DSPs                    |    <0.001 |        1 |        80 |            1.25 |
-| I/O                     |     0.001 |       13 |       100 |           13.00 |
+| I/O                     |     0.002 |       15 |       100 |           15.00 |
 | PS7                     |     0.000 |        1 |       --- |             --- |
 | Static Power            |     0.096 |          |           |                 |
 | Total                   |     0.251 |          |           |                 |

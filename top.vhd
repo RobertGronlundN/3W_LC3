@@ -19,7 +19,11 @@ entity LC3Zybo_top is
       blinky : out std_logic;
       pbtn : in std_logic_vector(3 downto 0);
       psw : in std_logic_vector(3 downto 0);
-      pled : out std_logic_vector(2 downto 0)
+      pled : out std_logic_vector(2 downto 0);
+      
+      -- PINOUT FOR UART
+      rx     :   in  std_logic;
+      tx    :   out std_logic
   );
 end LC3Zybo_top;
 
@@ -78,8 +82,11 @@ begin
       rx_empty => rx_empty,
       tx_data => tx_data,
       tx_wr => tx_wr,
-      tx_full => tx_full
-		
+      tx_full => tx_full,
+      
+      -- PINOUT FOR UART
+      rx => rx,
+      tx => tx		
 	);
 
 	--Here we instantiate the component that allows us to connect to the 

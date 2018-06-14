@@ -39,14 +39,14 @@ read_vhdl -library xil_defaultlib {
   {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/student_code.vhd}
   {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/top.vhd}
   {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/memory.vhd}
-  {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/imports/ch07/list_ch07_04_uart.vhd}
-  {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/imports/ch07/list_ch07_03_uart_tx.vhd}
-  {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/imports/ch07/list_ch07_01_uart_rx.vhd}
-  {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/imports/ch04/list_ch04_20_fifo.vhd}
-  {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/imports/ch04/list_ch04_11_mod_m.vhd}
   {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/logic.vhd}
   {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/IOregister.vhd}
   {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/new/7seg_reg.vhd}
+  {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/imports/fpga_vhdl_src/ch07/list_ch07_04_uart.vhd}
+  {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/imports/fpga_vhdl_src/ch04/list_ch04_11_mod_m.vhd}
+  {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/imports/fpga_vhdl_src/ch04/list_ch04_20_fifo.vhd}
+  {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/imports/fpga_vhdl_src/ch07/list_ch07_01_uart_rx.vhd}
+  {C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/imports/fpga_vhdl_src/ch07/list_ch07_03_uart_tx.vhd}
 }
 read_edif {{C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3.ngc}}
 read_edif {{C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboVIO_SE.ngc}}

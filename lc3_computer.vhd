@@ -26,7 +26,7 @@ entity lc3_computer is
       hex              : out std_logic_vector(15 downto 0); --16 bit hexadecimal value (shown on 7-seg sisplay)
 
 	  -- Physical I/0 (IO on the Zybo FPGA)
-	  pbtn				  : in  std_logic_vector(3 downto 0);
+	  pbtn			  : in  std_logic_vector(3 downto 0);
 	  psw				  : in  std_logic_vector(3 downto 0);
 	  pled				  : out  std_logic_vector(2 downto 0);
 
@@ -49,7 +49,11 @@ entity lc3_computer is
 	  -- LC3 CPU inputs
       cpu_clk_enable   : in  std_logic;
       sys_reset        : in  std_logic;
-      sys_program      : in  std_logic
+      sys_program      : in  std_logic;
+      
+      -- PINOUT FOR UART
+      rx               : in  std_logic;
+      tx               : out std_logic      
    );
 end lc3_computer;
 
@@ -107,22 +111,29 @@ architecture Behavioral of lc3_computer is
 	constant IO_LED     :   std_logic_vector(15 downto 0) := X"FE16";  -- Leds
 	constant IO_PLED    :   std_logic_vector(15 downto 0) := X"FE17";  -- Physical Leds
    
+    -- I/O for physical UART
+    constant P_STDIN_S    :   std_logic_vector(15 downto 0) := X"FE20";  -- Serial IN (terminal keyboard)
+    constant P_STDIN_D    :   std_logic_vector(15 downto 0) := X"FE22";
+    constant P_STDOUT_S   :   std_logic_vector(15 downto 0) := X"FE24";  -- Serial OUT (terminal  display)
+    constant P_STDOUT_D   :   std_logic_vector(15 downto 0) := X"FE26";
+   
+   
     -- MUX signals
     signal ram_out      :   std_logic_vector(15 downto 0);
     signal uart_r_data  :   std_logic_vector(15 downto 0);
     signal sw_reg       :   std_logic_vector(15 downto 0);
    
     -- UART signals
-    signal p_rx_data    :   std_logic_vector(15 downto 0);
+    signal p_rx_data    :   std_logic_vector(7 downto 0);
     signal p_rx_rd      :   std_logic;
     signal p_rx_empty   :   std_logic;
-    signal p_tx_data    :   std_logic_vector(15 downto 0);
+    signal p_tx_data    :   std_logic_vector(7 downto 0);
     signal p_tx_wr      :   std_logic;
     signal p_tx_full    :   std_logic;
                      
     signal reset        :   std_logic;
-    signal rx           :   std_logic;
-    signal tx           :   std_logic;
+    -- signal rx           :   std_logic;
+    -- signal tx           :   std_logic;
    
     -- logic signals
     signal mux_select   :   std_logic_vector(3 downto 0);
@@ -288,7 +299,9 @@ begin
             tx_full =>  p_tx_full,
             rx_empty=>  p_rx_empty        
             );
-
+        
+       
+    
 ---------------------------------------------------------------------------------------
 -- ADDRESS CONTROL LOGIC            ---------------------------------------------------
 ---------------------------------------------------------------------------------------  
@@ -350,46 +363,29 @@ end process;
     begin
         case mux_select is
             when "0000" =>  data_in <= ram_out;                             -- Enables read from memory
+            
         --- VIRTUAL UART   
             when "0001" =>  data_in <= (NOT rx_empty) & "000" & x"000";     -- Reads RX_EMPTY signal from virtual UART
             when "0010" =>  data_in <= x"00" & rx_data;                     -- Reads Data from FIFO.
             when "0011" =>  data_in <= (NOT tx_full) & "000" & x"000";      -- Reads TX_FULL signal from virtual UART
+            
         --- PHYSICAL UART
             when "0100" =>  data_in <= (NOT p_rx_empty) & "000" & x"000";   -- Reads RX_EMPTY signal from virtual UART
-            when "0101" =>  data_in <=  p_rx_data;                          -- Reads Data from FIFO.
-            when "0110" =>  data_in <= (NOT tx_full) & "000" & x"000";      -- Reads TX_FULL signal from virtual UART
+            when "0101" =>  data_in <=  x"00" & p_rx_data;                          -- Reads Data from FIFO.
+            when "0110" =>  data_in <= (NOT p_tx_full) & "000" & x"000";    -- Reads TX_FULL signal from virtual UART
+            
             when others =>  data_in <= ram_out;                             -- Else, no data is sent through the mux
         end case;
     end process;
 
     tx_data <= data_out(7 downto 0);
+    p_tx_data <= data_out(7 downto 0);
+    
 ---------------------------------------------------------------------------------------  
 -- END OF LC3_COMPUTER BEHAVIORAL ARCHITECTURE
 ---------------------------------------------------------------------------------------  
 
 end Behavioral;
-
-
-        
----------------------------------------------------------------------------------------  
--- ADDRESS CONTROL LOGIC OLD VERSION    -----------------------------------------------
----------------------------------------------------------------------------------------  
-
---    lc3_logic: entity work.logic
---    port map(
---        addr => address,
---        clk =>  clk,
---        RE => RE,
---        WE => WE,
---        mux_select => mux_select,
---        rw_en  =>  rw_en,
---        mem_en  =>  mem_en,
---        rx_empty => rx_empty,
---        rx_rd => rx_rd,
---        tx_full => tx_full,
---        tx_wr => tx_wr
---        );
-
 
 ---------------------------------------------------------------------------------------  
 -- UNUSED ENTITIES                  ---------------------------------------------------
@@ -410,13 +406,3 @@ end Behavioral;
 --        sseg => hex
 --    );    
 
---    lc3_uart: entity work.uart
---    port map (
---        clk     =>  clk,
---        reset   =>  reset,
---        r_data  =>  uart_r_data,
---        w_data  =>  data_out,
---        rd_uart =>  rd_uart,
---        wr_uart =>  wr_uart,
---        rx      =>  rx        
---        );

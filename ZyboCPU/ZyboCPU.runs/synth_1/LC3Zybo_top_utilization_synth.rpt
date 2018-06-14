@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue Jun 12 16:02:21 2018
+| Date         : Thu Jun 14 13:38:39 2018
 | Host         : DESKTOP-9ODFEVG running 64-bit major release  (build 9200)
 | Command      : report_utilization -file LC3Zybo_top_utilization_synth.rpt -pb LC3Zybo_top_utilization_synth.pb
 | Design       : LC3Zybo_top
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 3263 |     0 |     17600 | 18.54 |
-|   LUT as Logic             | 3209 |     0 |     17600 | 18.23 |
+| Slice LUTs*                | 3345 |     0 |     17600 | 19.01 |
+|   LUT as Logic             | 3291 |     0 |     17600 | 18.70 |
 |   LUT as Memory            |   54 |     0 |      6000 |  0.90 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
 |     LUT as Shift Register  |   54 |     0 |           |       |
-| Slice Registers            | 1951 |     0 |     35200 |  5.54 |
-|   Register as Flip Flop    | 1948 |     0 |     35200 |  5.53 |
+| Slice Registers            | 2038 |     0 |     35200 |  5.79 |
+|   Register as Flip Flop    | 2035 |     0 |     35200 |  5.78 |
 |   Register as Latch        |    3 |     0 |     35200 | <0.01 |
 | F7 Muxes                   |  107 |     0 |      8800 |  1.22 |
 | F8 Muxes                   |   16 |     0 |      4400 |  0.36 |
@@ -58,8 +58,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 4     |          Yes |           - |          Set |
 | 343   |          Yes |           - |        Reset |
-| 0     |          Yes |         Set |            - |
-| 1604  |          Yes |       Reset |            - |
+| 4     |          Yes |         Set |            - |
+| 1687  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -94,7 +94,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   13 |     0 |       100 | 13.00 |
+| Bonded IOB                  |   15 |     0 |       100 | 15.00 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | Bonded IOPADs               |    0 |     0 |       130 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         2 |  0.00 |
@@ -150,22 +150,23 @@ Table of Contents
 +-----------+------+----------------------+
 |  Ref Name | Used |  Functional Category |
 +-----------+------+----------------------+
-| FDRE      | 1604 |         Flop & Latch |
-| LUT6      | 1110 |                  LUT |
-| LUT5      |  885 |                  LUT |
-| LUT3      |  410 |                  LUT |
-| LUT1      |  367 |                  LUT |
+| FDRE      | 1687 |         Flop & Latch |
+| LUT6      | 1167 |                  LUT |
+| LUT5      |  897 |                  LUT |
+| LUT3      |  418 |                  LUT |
+| LUT1      |  368 |                  LUT |
 | FDCE      |  340 |         Flop & Latch |
-| LUT4      |  287 |                  LUT |
+| LUT4      |  298 |                  LUT |
 | CARRY4    |  209 |           CarryLogic |
-| LUT2      |  201 |                  LUT |
+| LUT2      |  205 |                  LUT |
 | MUXF7     |  107 |                MuxFx |
 | SRLC16E   |   54 |   Distributed Memory |
 | RAMB36E1  |   32 |         Block Memory |
 | MUXF8     |   16 |                MuxFx |
-| IBUF      |    9 |                   IO |
+| IBUF      |   10 |                   IO |
 | BUFG      |    6 |                Clock |
-| OBUF      |    4 |                   IO |
+| OBUF      |    5 |                   IO |
+| FDSE      |    4 |         Flop & Latch |
 | FDPE      |    4 |         Flop & Latch |
 | LDCE      |    3 |         Flop & Latch |
 | BSCANE2   |    2 |               Others |
