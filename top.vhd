@@ -23,7 +23,10 @@ entity LC3Zybo_top is
       
       -- PINOUT FOR UART
       rx     :   in  std_logic;
-      tx    :   out std_logic
+      tx    :   out std_logic;
+      
+      -- SPI CLOCK
+      spi_clk : out std_logic
   );
 end LC3Zybo_top;
 
@@ -86,7 +89,10 @@ begin
       
       -- PINOUT FOR UART
       rx => rx,
-      tx => tx		
+      tx => tx,		
+      
+      -- SPI CLOCK
+      spi_clk => spi_clk
 	);
 
 	--Here we instantiate the component that allows us to connect to the 

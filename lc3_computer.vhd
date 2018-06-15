@@ -4,6 +4,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.all;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -53,7 +54,10 @@ entity lc3_computer is
       
       -- PINOUT FOR UART
       rx               : in  std_logic;
-      tx               : out std_logic      
+      tx               : out std_logic;
+      
+      -- SPI CLOCK
+      spi_clk          : out std_logic      
    );
 end lc3_computer;
 
@@ -132,8 +136,6 @@ architecture Behavioral of lc3_computer is
     signal p_tx_full    :   std_logic;
                      
     signal reset        :   std_logic;
-    -- signal rx           :   std_logic;
-    -- signal tx           :   std_logic;
    
     -- logic signals
     signal mux_select   :   std_logic_vector(3 downto 0);
@@ -141,6 +143,10 @@ architecture Behavioral of lc3_computer is
     signal re_logic     :   std_logic;
     signal mem_en       :   std_logic;
     signal rw_en        :   std_logic;
+    
+    -- SPI COUNTER SIGNALS
+    signal counter      :   std_logic_vector(7 to 0);
+    signal tick         :   std_logic;
     
 ---------------------------------------------------------------------------------------
 -- END OF PREGENERATE CODE          ---------------------------------------------------
@@ -195,6 +201,10 @@ begin
 	
 	-- Input data for the LC3 CPU
 	-- data_in <= X"0000"; 
+	
+	-- SPI COUNTER
+	counter <= x"00";
+	tick <= '0';
 
     -- All the input signals comming to the FPGA should be used at least once otherwise we get 
     -- synthesis warnings. The following lines of VHDL code are meant to remove those warnings. 
@@ -300,7 +310,24 @@ begin
             rx_empty=>  p_rx_empty        
             );
         
-       
+
+
+---------------------------------------------------------------------------------------  
+-- TICK CLOCK                       ---------------------------------------------------
+--------------------------------------------------------------------------------------- 
+    process (clk, counter)
+    begin
+        if (clk'event and clk = '1') then
+            if (counter < x"32") then
+                counter <= counter + '1';
+                tick <= '0';
+            else 
+                counter <= x"00";
+                tick <= '1';
+            end if;
+        end if;
+    end process;
+
     
 ---------------------------------------------------------------------------------------
 -- ADDRESS CONTROL LOGIC            ---------------------------------------------------

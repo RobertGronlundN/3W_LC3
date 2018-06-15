@@ -36,7 +36,10 @@ entity student_code is
            
            -- PINOUT FOR UART
            rx    : in std_logic;
-           tx   : out std_logic
+           tx   : out std_logic;
+           
+           -- SPI CLOCK
+           spi_clk : out std_logic
        );
            
 end student_code;
@@ -99,7 +102,10 @@ begin
 		
 		-- PINOUT FOR UART
 		rx => rx,
-		tx => tx
+		tx => tx,
+		
+		-- SPI CLOCK
+		spi_clk => spi_clk
 	);
 	
 	--Instance of the debuging module for the LC3 computer
