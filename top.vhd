@@ -26,7 +26,10 @@ entity LC3Zybo_top is
       tx    :   out std_logic;
       
       -- SPI CLOCK
-      spi_clk : out std_logic
+      spi_clk          : out std_logic;
+      spi_status       : out std_logic;
+      spi_data         : in std_logic; 
+      spi_cs           : out std_logic
   );
 end LC3Zybo_top;
 
@@ -92,7 +95,10 @@ begin
       tx => tx,		
       
       -- SPI CLOCK
-      spi_clk => spi_clk
+      spi_clk => spi_clk,
+      spi_status => spi_status,
+      spi_data => spi_data,
+      spi_cs => spi_cs
 	);
 
 	--Here we instantiate the component that allows us to connect to the 

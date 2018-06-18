@@ -39,7 +39,10 @@ entity student_code is
            tx   : out std_logic;
            
            -- SPI CLOCK
-           spi_clk : out std_logic
+           spi_clk : out std_logic;
+           spi_status       : out std_logic;
+           spi_data         : in std_logic; 
+           spi_cs           : out std_logic
        );
            
 end student_code;
@@ -105,7 +108,10 @@ begin
 		tx => tx,
 		
 		-- SPI CLOCK
-		spi_clk => spi_clk
+		spi_clk => spi_clk,
+		spi_status => spi_status,
+        spi_data => spi_data,
+        spi_cs => spi_cs
 	);
 	
 	--Instance of the debuging module for the LC3 computer

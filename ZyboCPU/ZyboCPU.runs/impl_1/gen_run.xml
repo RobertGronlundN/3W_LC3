@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1529325949">
+  <File Type="PWROPT-DCP" Name="LC3Zybo_top_pwropt.dcp"/>
+  <File Type="ROUTE-PWR" Name="LC3Zybo_top_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="LC3Zybo_top.tcl"/>
+  <File Type="ROUTE-PWR-SUM" Name="LC3Zybo_top_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="LC3Zybo_top_reports.tcl"/>
+  <File Type="BG-DRC" Name="LC3Zybo_top.drc"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="LC3Zybo_top_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="LC3Zybo_top_timing_summary_init.rpt"/>
+  <File Type="OPT-HWDEF" Name="LC3Zybo_top.hwdef"/>
+  <File Type="OPT-DCP" Name="LC3Zybo_top_opt.dcp"/>
+  <File Type="OPT-DRC" Name="LC3Zybo_top_drc_opted.rpt"/>
+  <File Type="OPT-TIMING" Name="LC3Zybo_top_timing_summary_opted.rpt"/>
+  <File Type="PWROPT-DRC" Name="LC3Zybo_top_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="LC3Zybo_top_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="LC3Zybo_top_placed.dcp"/>
+  <File Type="PLACE-IO" Name="LC3Zybo_top_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="LC3Zybo_top_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="LC3Zybo_top_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="LC3Zybo_top_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="LC3Zybo_top_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="LC3Zybo_top_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="LC3Zybo_top_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="LC3Zybo_top_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="LC3Zybo_top_postplace_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="LC3Zybo_top_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="LC3Zybo_top_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="LC3Zybo_top_drc_physopted.rpt"/>
+  <File Type="BG-BIT" Name="LC3Zybo_top.bit"/>
+  <File Type="PHYSOPT-TIMING" Name="LC3Zybo_top_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="LC3Zybo_top_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="LC3Zybo_top_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="LC3Zybo_top_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="LC3Zybo_top_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="LC3Zybo_top_drc_routed.pb"/>
+  <File Type="BITSTR-MSK" Name="LC3Zybo_top.msk"/>
+  <File Type="ROUTE-DRC-RPX" Name="LC3Zybo_top_drc_routed.rpx"/>
+  <File Type="BG-BGN" Name="LC3Zybo_top.bgn"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="LC3Zybo_top_methodology_drc_routed.rpt"/>
+  <File Type="BITSTR-RBT" Name="LC3Zybo_top.rbt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="LC3Zybo_top_methodology_drc_routed.rpx"/>
+  <File Type="BG-BIN" Name="LC3Zybo_top.bin"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="LC3Zybo_top_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="LC3Zybo_top_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="LC3Zybo_top_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="LC3Zybo_top_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="LC3Zybo_top_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="LC3Zybo_top_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="LC3Zybo_top_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="LC3Zybo_top_incremental_reuse_routed.rpt"/>
+  <File Type="RDI-RDI" Name="LC3Zybo_top.vdi"/>
+  <File Type="ROUTE-CLK" Name="LC3Zybo_top_clock_utilization_routed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="LC3Zybo_top_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="LC3Zybo_top_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="LC3Zybo_top_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="LC3Zybo_top_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="LC3Zybo_top_timing_summary_postroute_physopted.rpx"/>
+  <File Type="BITSTR-NKY" Name="LC3Zybo_top.nky"/>
+  <File Type="BITSTR-BMM" Name="LC3Zybo_top_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="LC3Zybo_top.mmi"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="LC3Zybo_top.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="LC3Zybo_top.sysdef"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../lc3_wrapper_tristates.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lc3.ngc">
+      <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lc3_wrapper_multiplexers.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../debounce.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../BtnToggle.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../ZyboVIO_SE.ngc">
+      <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lc3_debug.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../lc3_computer.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../zybovios_wrapper.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../student_code.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../top.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/import_ise_summary.txt"/>
+    <File Path="$PSRCDIR/sources_1/new/memory.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/logic.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/IOregister.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/7seg_reg.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/fpga_vhdl_src/ch07/list_ch07_04_uart.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/fpga_vhdl_src/ch07/list_ch07_04_uart.vhd"/>
+        <Attr Name="ImportTime" Val="1201532736"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/fpga_vhdl_src/ch04/list_ch04_11_mod_m.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/fpga_vhdl_src/ch04/list_ch04_11_mod_m.vhd"/>
+        <Attr Name="ImportTime" Val="1201521066"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/fpga_vhdl_src/ch04/list_ch04_20_fifo.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/fpga_vhdl_src/ch04/list_ch04_20_fifo.vhd"/>
+        <Attr Name="ImportTime" Val="1201521240"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/fpga_vhdl_src/ch07/list_ch07_01_uart_rx.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/fpga_vhdl_src/ch07/list_ch07_01_uart_rx.vhd"/>
+        <Attr Name="ImportTime" Val="1201532650"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/fpga_vhdl_src/ch07/list_ch07_03_uart_tx.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/fpga_vhdl_src/ch07/list_ch07_03_uart_tx.vhd"/>
+        <Attr Name="ImportTime" Val="1201532688"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="LC3Zybo_top"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/New folder/ZyboVIO.ucf">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../ZyboVIO.ucf"/>
+        <Attr Name="ImportTime" Val="1528105862"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/constrs_1/new/ZyboCons.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>
