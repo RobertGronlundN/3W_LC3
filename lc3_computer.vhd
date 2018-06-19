@@ -115,12 +115,11 @@ architecture Behavioral of lc3_computer is
     constant P_STDOUT_S   :   std_logic_vector(15 downto 0) := X"FE24";  -- Serial OUT (terminal  display)
     constant P_STDOUT_D   :   std_logic_vector(15 downto 0) := X"FE26";
     
-    constant SPI_REG      :   std_logic_vector(15 downto 0) := X"FE34";
-   
+    -- I/O for SPI
+    constant SPI_REG      :   std_logic_vector(15 downto 0) := X"FE34";   
    
     -- MUX signals
     signal ram_out      :   std_logic_vector(15 downto 0);
-    signal uart_r_data  :   std_logic_vector(15 downto 0);
     signal sw_reg       :   std_logic_vector(15 downto 0);
    
     -- UART signals
@@ -134,58 +133,28 @@ architecture Behavioral of lc3_computer is
     signal reset        :   std_logic;
    
     -- logic signals
-    signal mux_select   :   std_logic_vector(3 downto 0);
-    signal we_logic     :   std_logic;
-    signal re_logic     :   std_logic;
+    signal mux_select   :   std_logic_vector(3 downto 0);    
     signal mem_en       :   std_logic;
-    signal rw_en        :   std_logic;
+    --signal rw_en        :   std_logic;
     
     -- SPI COUNTER SIGNALS
     signal counter          :   std_logic_vector(7 downto 0);
     signal spi_clk_signal   :   std_logic;
     signal tick             :   std_logic;
     signal tick_high        :   std_logic;
-    signal tick_low         :   std_logic;
+    signal tick_low         :   std_logic;    
     
-    type c_state_type is (wait_one, c_low, wait_two, c_high);
-    signal c_state, c_next_state        :   c_state_type;
-    
-    -- SHIFT REGISTER SIGNALS
-    signal shift_ctrl             :   std_logic;
-    signal shift_d                :   std_logic_vector(15 downto 0);
-    signal shift_q                :   std_logic_vector(15 downto 0);
-    signal shift_r_reg            :   std_logic_vector(15 downto 0);
-    signal shift_r_next           :   std_logic_vector(15 downto 0);
-        
     -- SPI STATE SIGNALS
     signal spi_state        :   std_logic_vector(7 downto 0);
-    signal spi_next_state   :   std_logic_vector(7 downto 0);
-    --type spi_state_type is (PRE, START, SGL, D_TWO, D_ONE, D_ZERO, SAMPLE_ONE, SAMPLE_TWO, NULLBIT, B_NINE, B_EIGHT, B_SEVEN, B_SIX, B_FIVE, B_FOUR, B_THREE, B_TWO, B_ONE, B_ZERO, B_ZEROO );
-    --signal spi_state, spi_next_state    :   spi_state_type;
+    signal spi_next_state   :   std_logic_vector(7 downto 0);    
+    signal ready            :   std_logic;
     
-    signal CS               :   std_logic;
-    signal spi_counter      :   std_logic_vector(7 downto 0);
-    signal sclk             :   std_logic;
-    signal load_SR          :   std_logic;
-    signal shift_reg_en     :   std_logic;
-    signal sample_miso      :   std_logic;
-    
-    signal analog_s         :   std_logic_vector(15 downto 0);
-    signal analog_d         :   std_logic_vector(15 downto 0);
-    
+    signal CS               :   std_logic;    
     signal spi_out          :   std_logic;
     signal spi_in           :   std_logic;
     signal spi_temp         :   std_logic_vector(7 downto 0);
     signal spi_mux          :   std_logic_vector(15 downto 0);
-    
-    signal ready            :   std_logic;
-    
     signal debug            :   std_logic;
-    
----------------------------------------------------------------------------------------
--- END OF PREGENERATE CODE          ---------------------------------------------------
----------------------------------------------------------------------------------------
-
 	
 begin
 ---------------------------------------------------------------------------------------
@@ -211,18 +180,6 @@ begin
     pled(1) <= NOT tx_full;
     pled(2) <= '0';
    
----------------------------------------------------------------------------------------
--- SWITCH REGISTER, PERSONAL        ---------------------------------------------------
----------------------------------------------------------------------------------------  
-
-    -- sw_reg <= X"00" & sw;       -- Converts the sw_reg 7 downto 0 to 15 downto 0.
-   
----------------------------------------------------------------------------------------
--- SEVEN SEGMENT REGISTER, PERSONAL ---------------------------------------------------
----------------------------------------------------------------------------------------  
-    --Virtual hexadecimal display on Zybo VIO
-    -- hex <= sw_reg;              -- Updates the seven segment display dou to the values found in the register for the switches.
-
     -- All the input signals comming to the FPGA should be used at least once otherwise we get 
     -- synthesis warnings. The following lines of VHDL code are meant to remove those warnings. 
     -- Sink is just an output signal that that has the only purpose to allow all the inputs to 
@@ -264,35 +221,14 @@ begin
 		 WE         => WE,
 		 RE         => RE 
 		 );
-    data_dbg <= data_in when RE='1' else data_out;
-    
+    data_dbg <= data_in when RE='1' else data_out;    
 	-- <<< LC3 CPU using multiplexers end of instantiation>>>	
-	
---	-- <<< LC3 CPU using tristates for the data bus>>>
---	lc3_t: entity work.lc3_wrapper_tristates
---	port map (
---		 clk        => clk,
---		 clk_enable => cpu_clk_enable,
---		 reset      => sys_reset,
---		 program    => sys_program,
---		 addr       => address,
---		 data       => data,
---		 WE         => WE,
---		 RE         => RE 
---		 );
---   data_dbg <= data;
---	-- <<< LC3 CPU using tristates end of instantiation>>>
 	
 	--Information that is sent to the debugging module
    address_dbg <= address;
    RE_dbg <= RE;
    WE_dbg <= WE;
-   
----------------------------------------------------------------------------------------  
--- <<< Write your VHDL code starting from here >>>      -------------------------------
----------------------------------------------------------------------------------------  
-
-
+ 
 ---------------------------------------------------------------------------------------  
 -- MEMORY                           ---------------------------------------------------       
 ---------------------------------------------------------------------------------------  
@@ -312,20 +248,20 @@ begin
 -- PHYSICAL UART                    ---------------------------------------------------       
 ---------------------------------------------------------------------------------------  
         
-        lc3_uart: entity work.uart
-        port map (
-            clk     =>  clk,
-            reset   =>  reset,
-            rd_uart =>  p_rx_rd,
-            wr_uart =>  p_tx_wr,
-            r_data  =>  p_rx_data,
-            w_data  =>  p_tx_data,
-            rx      =>  rx,             -- Når ledning inkluderes, tilslut pin
-            tx      =>  tx,             -- Når ledning inkluderes, tilslut pin
-            tx_full =>  p_tx_full,
-            rx_empty=>  p_rx_empty        
-            );
-        
+    lc3_uart: entity work.uart
+    port map (
+        clk     =>  clk,
+        reset   =>  reset,
+        rd_uart =>  p_rx_rd,
+        wr_uart =>  p_tx_wr,
+        r_data  =>  p_rx_data,
+        w_data  =>  p_tx_data,
+        rx      =>  rx,             -- Når ledning inkluderes, tilslut pin
+        tx      =>  tx,             -- Når ledning inkluderes, tilslut pin
+        tx_full =>  p_tx_full,
+        rx_empty=>  p_rx_empty        
+        );
+    
 ---------------------------------------------------------------------------------------  
 -- TICK CLOCK                       ---------------------------------------------------
 --------------------------------------------------------------------------------------- 
@@ -349,8 +285,7 @@ begin
                 counter <= std_logic_vector(unsigned(counter) + 1);
             end if;
         end if;    
-    end process;
-   
+    end process;   
    
 ---------------------------------------------------------------------------------------
 -- SPI                              ---------------------------------------------------
@@ -544,18 +479,16 @@ begin
                    spi_next_state <= X"00";
                 end if;
             
-            when others =>
-            
-            
+            when others =>         
         end case;
     end process;
+    
 ---------------------------------------------------------------------------------------
 -- ADDRESS CONTROL LOGIC            ---------------------------------------------------
 ---------------------------------------------------------------------------------------  
 
 process (address, RE, WE)
-begin
-    
+begin    
     rx_rd <= '0';                                   -- Resest rx_rd to the default value '0' every clock cycle
     tx_wr <= '0';                                   -- Reset tx_wr to the default value '0' every clock cycle
     p_rx_rd <= '0';                                 -- Resest rx_rd to the default value '0' every clock cycle
@@ -563,19 +496,19 @@ begin
     
     case to_integer(unsigned(address)) is
         when 16#0000# to 16#fdff# => 
-            mux_select <= "0000";
+            mux_select <= X"0";
             mem_en <= '1';
             
 ---------- VIRTUAL UART CONNECTION            
         -- STD IN VIRTUAL UART SIGNALS
-        when 16#FE00# => mux_select <= "0001";      -- Enables mux output to be the status signal from FIFO STD IN
+        when 16#FE00# => mux_select <= X"1";      -- Enables mux output to be the status signal from FIFO STD IN
         when 16#FE02# => 
             if rx_empty = '0' then
                 rx_rd <= RE;
-                mux_select <= "0010";
+                mux_select <= X"2";
             end if;
         -- STD OUT VIRTUAL UART SIGNALS
-        when 16#FE04# => mux_select <= "0011";      -- Enables mux output to be the status signal from FIFO STD OUT
+        when 16#FE04# => mux_select <= X"3";      -- Enables mux output to be the status signal from FIFO STD OUT
         when 16#FE06# =>
             if tx_full = '0' then
                 tx_wr <= WE;
@@ -583,25 +516,25 @@ begin
 
 ---------- PHYSICAL UART CONNECTION
         -- STD IN PHYSICAL UART SIGNALS
-        when 16#FE20# => mux_select <= "0100";      -- Enables mux output to be the status signal from FIFO STD IN
+        when 16#FE20# => mux_select <= X"4";      -- Enables mux output to be the status signal from FIFO STD IN
         when 16#FE22# => 
             if p_rx_empty = '0' then
                 p_rx_rd <= RE;
-                mux_select <= "0101";
+                mux_select <= X"5";
             end if;
         -- STD OUT PHYSICAL UART SIGNALS
-        when 16#FE24# => mux_select <= "0110";      -- Enables mux output to be the status signal from FIFO STD OUT
+        when 16#FE24# => mux_select <= X"6";      -- Enables mux output to be the status signal from FIFO STD OUT
         when 16#FE26# =>
             if p_tx_full = '0' then
                 p_tx_wr <= WE;
             end if;                
         
         -- SPI SIGNALS
-        when 16#FE34# => mux_select <= "1000";
+        when 16#FE34# => mux_select <= X"8";
            
         when others => 
             mem_en <= '1'; 
-            mux_select <= "0000";               
+            mux_select <= X"0";               
     end case;
 end process;
 
@@ -612,19 +545,17 @@ end process;
     process (mux_select)
     begin
         case mux_select is
-            when "0000" =>  data_in <= ram_out;                             -- Enables read from memory
-            
+            when X"0" =>  data_in <= ram_out;                             -- Enables read from memory            
         --- VIRTUAL UART   
-            when "0001" =>  data_in <= (NOT rx_empty) & "000" & x"000";     -- Reads RX_EMPTY signal from virtual UART
-            when "0010" =>  data_in <= x"00" & rx_data;                     -- Reads Data from FIFO.
-            when "0011" =>  data_in <= (NOT tx_full) & "000" & x"000";      -- Reads TX_FULL signal from virtual UART
-            
+            when X"1" =>  data_in <= (NOT rx_empty) & "000" & x"000";     -- Reads RX_EMPTY signal from virtual UART
+            when X"2" =>  data_in <= x"00" & rx_data;                     -- Reads Data from FIFO.
+            when X"3" =>  data_in <= (NOT tx_full) & "000" & x"000";      -- Reads TX_FULL signal from virtual UART            
         --- PHYSICAL UART
-            when "0100" =>  data_in <= (NOT p_rx_empty) & "000" & x"000";   -- Reads RX_EMPTY signal from virtual UART
-            when "0101" =>  data_in <=  x"00" & p_rx_data;                          -- Reads Data from FIFO.
-            when "0110" =>  data_in <= (NOT p_tx_full) & "000" & x"000";    -- Reads TX_FULL signal from virtual UART
-            
-            when "1000" =>  data_in <= spi_mux;
+            when X"4" =>  data_in <= (NOT p_rx_empty) & "000" & x"000";   -- Reads RX_EMPTY signal from virtual UART
+            when X"5" =>  data_in <=  x"00" & p_rx_data;                          -- Reads Data from FIFO.
+            when X"6" =>  data_in <= (NOT p_tx_full) & "000" & x"000";    -- Reads TX_FULL signal from virtual UART            
+        --- SPI
+            when X"8" =>  data_in <= spi_mux;
             
             when others =>  data_in <= ram_out;                             -- Else, no data is sent through the mux
         end case;
@@ -644,6 +575,21 @@ end Behavioral;
 -- *************************************************************************************************************************
 -- *************************************************************************************************************************
 -- *************************************************************************************************************************
+---------------------------------------------------------------------------------------
+-- START OF GRAVEYARD               ---------------------------------------------------
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+-- SWITCH REGISTER, PERSONAL        ---------------------------------------------------
+---------------------------------------------------------------------------------------  
+
+    -- sw_reg <= X"00" & sw;       -- Converts the sw_reg 7 downto 0 to 15 downto 0.
+   
+---------------------------------------------------------------------------------------
+-- SEVEN SEGMENT REGISTER, PERSONAL ---------------------------------------------------
+---------------------------------------------------------------------------------------  
+    --Virtual hexadecimal display on Zybo VIO
+    -- hex <= sw_reg;              -- Updates the seven segment display dou to the values found in the register for the switches.
 
 ---------------------------------------------------------------------------------------  
 -- UNUSED ENTITIES                  ---------------------------------------------------
@@ -667,6 +613,8 @@ end Behavioral;
 ---------------------------------------------------------------------------------------
 -- FSM TICK                         ---------------------------------------------------
 --------------------------------------------------------------------------------------- 
+--    type c_state_type is (wait_one, c_low, wait_two, c_high);
+--    signal c_state, c_next_state        :   c_state_type;
     
 --    process (c_state, tick)
 --    begin
@@ -701,7 +649,14 @@ end Behavioral;
    
 ---------------------------------------------------------------------------------------
 -- UNIVERSEL SHIFT REGISTER         ---------------------------------------------------
----------------------------------------------------------------------------------------     
+---------------------------------------------------------------------------------------   
+-- SHIFT REGISTER SIGNALS
+--    signal shift_ctrl             :   std_logic;
+--    signal shift_d                :   std_logic_vector(15 downto 0);
+--    signal shift_q                :   std_logic_vector(15 downto 0);
+--    signal shift_r_reg            :   std_logic_vector(15 downto 0);
+--    signal shift_r_next           :   std_logic_vector(15 downto 0);
+          
 --   process(clk,reset)
 --   begin
 --    shift_ctrl <= NOT shift_reg_en;
@@ -724,6 +679,18 @@ end Behavioral;
 ---------------------------------------------------------------------------------------
 -- FSMD STATE REGISTER SPI               ----------------------------------------------
 ---------------------------------------------------------------------------------------  
+--type spi_state_type is (PRE, START, SGL, D_TWO, D_ONE, D_ZERO, SAMPLE_ONE, SAMPLE_TWO, NULLBIT, B_NINE, B_EIGHT, B_SEVEN, B_SIX, B_FIVE, B_FOUR, B_THREE, B_TWO, B_ONE, B_ZERO, B_ZEROO );
+--signal spi_state, spi_next_state    :   spi_state_type;
+
+--    signal spi_counter      :   std_logic_vector(7 downto 0);
+--    signal sclk             :   std_logic;
+--    signal load_SR          :   std_logic;
+--    signal shift_reg_en     :   std_logic;
+--    signal sample_miso      :   std_logic;
+    
+--    signal analog_s         :   std_logic_vector(15 downto 0);
+--    signal analog_d         :   std_logic_vector(15 downto 0);
+    
 
 --process (spi_state, tick_high, tick_low)
 --    begin
