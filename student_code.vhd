@@ -42,7 +42,8 @@ entity student_code is
            spi_clk : out std_logic;
            spi_status       : out std_logic;
            spi_data         : in std_logic; 
-           spi_cs           : out std_logic
+           spi_cs           : out std_logic;
+           spi_debug        : out std_logic
        );
            
 end student_code;
@@ -111,7 +112,8 @@ begin
 		spi_clk => spi_clk,
 		spi_status => spi_status,
         spi_data => spi_data,
-        spi_cs => spi_cs
+        spi_cs => spi_cs,
+        spi_debug => spi_debug
 	);
 	
 	--Instance of the debuging module for the LC3 computer

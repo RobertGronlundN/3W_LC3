@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Mon Jun 18 14:46:45 2018
+| Date         : Tue Jun 19 16:02:39 2018
 | Host         : DESKTOP-9ODFEVG running 64-bit major release  (build 9200)
 | Command      : report_utilization -file LC3Zybo_top_utilization_synth.rpt -pb LC3Zybo_top_utilization_synth.pb
 | Design       : LC3Zybo_top
@@ -30,14 +30,14 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 3390 |     0 |     17600 | 19.26 |
-|   LUT as Logic             | 3336 |     0 |     17600 | 18.95 |
+| Slice LUTs*                | 3397 |     0 |     17600 | 19.30 |
+|   LUT as Logic             | 3343 |     0 |     17600 | 18.99 |
 |   LUT as Memory            |   54 |     0 |      6000 |  0.90 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
 |     LUT as Shift Register  |   54 |     0 |           |       |
-| Slice Registers            | 2075 |     0 |     35200 |  5.89 |
-|   Register as Flip Flop    | 2050 |     0 |     35200 |  5.82 |
-|   Register as Latch        |   25 |     0 |     35200 |  0.07 |
+| Slice Registers            | 2079 |     0 |     35200 |  5.91 |
+|   Register as Flip Flop    | 2052 |     0 |     35200 |  5.83 |
+|   Register as Latch        |   27 |     0 |     35200 |  0.08 |
 | F7 Muxes                   |  107 |     0 |      8800 |  1.22 |
 | F8 Muxes                   |   16 |     0 |      4400 |  0.36 |
 +----------------------------+------+-------+-----------+-------+
@@ -57,9 +57,9 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 4     |          Yes |           - |          Set |
-| 365   |          Yes |           - |        Reset |
+| 367   |          Yes |           - |        Reset |
 | 4     |          Yes |         Set |            - |
-| 1702  |          Yes |       Reset |            - |
+| 1704  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -94,7 +94,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   19 |     0 |       100 | 19.00 |
+| Bonded IOB                  |   20 |     0 |       100 | 20.00 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | Bonded IOPADs               |    0 |     0 |       130 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         2 |  0.00 |
@@ -150,9 +150,9 @@ Table of Contents
 +-----------+------+----------------------+
 |  Ref Name | Used |  Functional Category |
 +-----------+------+----------------------+
-| FDRE      | 1702 |         Flop & Latch |
-| LUT6      | 1175 |                  LUT |
-| LUT5      |  922 |                  LUT |
+| FDRE      | 1704 |         Flop & Latch |
+| LUT6      | 1188 |                  LUT |
+| LUT5      |  915 |                  LUT |
 | LUT3      |  417 |                  LUT |
 | LUT1      |  371 |                  LUT |
 | FDCE      |  340 |         Flop & Latch |
@@ -162,10 +162,10 @@ Table of Contents
 | MUXF7     |  107 |                MuxFx |
 | SRLC16E   |   54 |   Distributed Memory |
 | RAMB36E1  |   32 |         Block Memory |
-| LDCE      |   25 |         Flop & Latch |
+| LDCE      |   27 |         Flop & Latch |
 | MUXF8     |   16 |                MuxFx |
 | IBUF      |   11 |                   IO |
-| OBUF      |    8 |                   IO |
+| OBUF      |    9 |                   IO |
 | BUFG      |    6 |                Clock |
 | FDSE      |    4 |         Flop & Latch |
 | FDPE      |    4 |         Flop & Latch |

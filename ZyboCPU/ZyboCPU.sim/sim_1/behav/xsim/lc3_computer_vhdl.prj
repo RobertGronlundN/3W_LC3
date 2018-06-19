@@ -1,0 +1,23 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../lc3_wrapper_tristates.vhd" \
+"../../../../../lc3_wrapper_multiplexers.vhd" \
+"../../../../../debounce.vhd" \
+"../../../../../BtnToggle.vhd" \
+"../../../../../lc3_debug.vhd" \
+"../../../../../lc3_computer.vhd" \
+"../../../../../zybovios_wrapper.vhd" \
+"../../../../../student_code.vhd" \
+"../../../../../top.vhd" \
+"../../../../ZyboCPU.srcs/sources_1/new/memory.vhd" \
+"../../../../ZyboCPU.srcs/sources_1/new/logic.vhd" \
+"../../../../ZyboCPU.srcs/sources_1/new/IOregister.vhd" \
+"../../../../ZyboCPU.srcs/sources_1/new/7seg_reg.vhd" \
+"../../../../ZyboCPU.srcs/sources_1/imports/fpga_vhdl_src/ch07/list_ch07_04_uart.vhd" \
+"../../../../ZyboCPU.srcs/sources_1/imports/fpga_vhdl_src/ch04/list_ch04_11_mod_m.vhd" \
+"../../../../ZyboCPU.srcs/sources_1/imports/fpga_vhdl_src/ch04/list_ch04_20_fifo.vhd" \
+"../../../../ZyboCPU.srcs/sources_1/imports/fpga_vhdl_src/ch07/list_ch07_01_uart_rx.vhd" \
+"../../../../ZyboCPU.srcs/sources_1/imports/fpga_vhdl_src/ch07/list_ch07_03_uart_tx.vhd" \
+
+# Do not sort compile order
+nosort

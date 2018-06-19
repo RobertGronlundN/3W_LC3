@@ -35,7 +35,7 @@ set_property PACKAGE_PIN J15 [get_ports {spi_clk}]
 set_property PACKAGE_PIN H15 [get_ports {spi_status}] 
 set_property PACKAGE_PIN V13 [get_ports {spi_data}] 
 set_property PACKAGE_PIN U17 [get_ports {spi_cs}] 
-#set_property PACKAGE_PIN T17 [get_ports {je[6]}] 
+set_property PACKAGE_PIN T17 [get_ports {spi_debug}] 
 #set_property PACKAGE_PIN Y17 [get_ports {je[7]}] 
 
 ##VGA Connector

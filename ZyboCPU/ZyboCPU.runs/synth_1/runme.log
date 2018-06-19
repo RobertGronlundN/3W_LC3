@@ -14,13 +14,13 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 19848 
+INFO: Helper process launched with PID 11844 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 358.102 ; gain = 99.656
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 357.938 ; gain = 100.156
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'LC3Zybo_top' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/top.vhd:36]
-INFO: [Synth 8-638] synthesizing module 'student_code' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/student_code.vhd:50]
-INFO: [Synth 8-638] synthesizing module 'lc3_computer' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:67]
+INFO: [Synth 8-638] synthesizing module 'LC3Zybo_top' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/top.vhd:37]
+INFO: [Synth 8-638] synthesizing module 'student_code' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/student_code.vhd:51]
+INFO: [Synth 8-638] synthesizing module 'lc3_computer' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:68]
 INFO: [Synth 8-638] synthesizing module 'lc3_wrapper_multiplexers' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_wrapper_multiplexers.vhd:24]
 INFO: [Synth 8-637] synthesizing blackbox instance 'lc3_1' of component 'lc3' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_wrapper_multiplexers.vhd:43]
 INFO: [Synth 8-256] done synthesizing module 'lc3_wrapper_multiplexers' (1#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_wrapper_multiplexers.vhd:24]
@@ -51,37 +51,33 @@ INFO: [Synth 8-638] synthesizing module 'uart_tx' [C:/Users/Robert/Desktop/2. Se
 	Parameter SB_TICK bound to: 16 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'uart_tx' (6#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/imports/fpga_vhdl_src/ch07/list_ch07_03_uart_tx.vhd:20]
 INFO: [Synth 8-256] done synthesizing module 'uart' (7#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.srcs/sources_1/imports/fpga_vhdl_src/ch07/list_ch07_04_uart.vhd:29]
-WARNING: [Synth 8-614] signal 'spi_data' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:378]
-WARNING: [Synth 8-614] signal 'spi_out' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:378]
-WARNING: [Synth 8-614] signal 'CS' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:378]
-WARNING: [Synth 8-614] signal 'spi_in' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:378]
-WARNING: [Synth 8-614] signal 'spi_temp' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:378]
-WARNING: [Synth 8-614] signal 'rx_empty' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:540]
-WARNING: [Synth 8-614] signal 'tx_full' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:540]
-WARNING: [Synth 8-614] signal 'p_rx_empty' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:540]
-WARNING: [Synth 8-614] signal 'p_tx_full' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:540]
-WARNING: [Synth 8-614] signal 'ram_out' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:596]
-WARNING: [Synth 8-614] signal 'rx_empty' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:596]
-WARNING: [Synth 8-614] signal 'rx_data' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:596]
-WARNING: [Synth 8-614] signal 'tx_full' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:596]
-WARNING: [Synth 8-614] signal 'p_rx_empty' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:596]
-WARNING: [Synth 8-614] signal 'p_rx_data' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:596]
-WARNING: [Synth 8-614] signal 'p_tx_full' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:596]
-WARNING: [Synth 8-614] signal 'spi_mux' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:596]
-WARNING: [Synth 8-6014] Unused sequential element tick_reg was removed.  [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:343]
+WARNING: [Synth 8-614] signal 'spi_temp' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:385]
+WARNING: [Synth 8-614] signal 'rx_empty' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:566]
+WARNING: [Synth 8-614] signal 'tx_full' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:566]
+WARNING: [Synth 8-614] signal 'p_rx_empty' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:566]
+WARNING: [Synth 8-614] signal 'p_tx_full' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:566]
+WARNING: [Synth 8-614] signal 'ram_out' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:622]
+WARNING: [Synth 8-614] signal 'rx_empty' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:622]
+WARNING: [Synth 8-614] signal 'rx_data' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:622]
+WARNING: [Synth 8-614] signal 'tx_full' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:622]
+WARNING: [Synth 8-614] signal 'p_rx_empty' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:622]
+WARNING: [Synth 8-614] signal 'p_rx_data' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:622]
+WARNING: [Synth 8-614] signal 'p_tx_full' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:622]
+WARNING: [Synth 8-614] signal 'spi_mux' is read in the process but is not in the sensitivity list [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:622]
 WARNING: [Synth 8-3848] Net hex in module/entity lc3_computer does not have driver. [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:27]
-INFO: [Synth 8-256] done synthesizing module 'lc3_computer' (8#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:67]
+WARNING: [Synth 8-3848] Net spi_clk_signal in module/entity lc3_computer does not have driver. [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:155]
+INFO: [Synth 8-256] done synthesizing module 'lc3_computer' (8#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:68]
 INFO: [Synth 8-638] synthesizing module 'lc3_debug' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_debug.vhd:29]
 INFO: [Synth 8-638] synthesizing module 'BtnToggle' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/BtnToggle.vhd:24]
 INFO: [Synth 8-256] done synthesizing module 'BtnToggle' (9#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/BtnToggle.vhd:24]
 INFO: [Synth 8-638] synthesizing module 'debounce' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/debounce.vhd:18]
 INFO: [Synth 8-256] done synthesizing module 'debounce' (10#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/debounce.vhd:18]
 INFO: [Synth 8-256] done synthesizing module 'lc3_debug' (11#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_debug.vhd:29]
-INFO: [Synth 8-256] done synthesizing module 'student_code' (12#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/student_code.vhd:50]
+INFO: [Synth 8-256] done synthesizing module 'student_code' (12#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/student_code.vhd:51]
 INFO: [Synth 8-638] synthesizing module 'zyboviose_wrapper' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/zybovios_wrapper.vhd:32]
 INFO: [Synth 8-637] synthesizing blackbox instance 'Inst_ZyboVIO_SE' of component 'ZyboVIO_SE' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/zybovios_wrapper.vhd:58]
 INFO: [Synth 8-256] done synthesizing module 'zyboviose_wrapper' (13#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/zybovios_wrapper.vhd:32]
-INFO: [Synth 8-256] done synthesizing module 'LC3Zybo_top' (14#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/top.vhd:36]
+INFO: [Synth 8-256] done synthesizing module 'LC3Zybo_top' (14#1) [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/top.vhd:37]
 WARNING: [Synth 8-3331] design memory has unconnected port RE
 WARNING: [Synth 8-3331] design lc3_computer has unconnected port hex[15]
 WARNING: [Synth 8-3331] design lc3_computer has unconnected port hex[14]
@@ -100,7 +96,7 @@ WARNING: [Synth 8-3331] design lc3_computer has unconnected port hex[2]
 WARNING: [Synth 8-3331] design lc3_computer has unconnected port hex[1]
 WARNING: [Synth 8-3331] design lc3_computer has unconnected port hex[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 444.746 ; gain = 186.301
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 441.301 ; gain = 183.520
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -110,7 +106,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 444.746 ; gain = 186.301
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 441.301 ; gain = 183.520
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -126,22 +122,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 770.133 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 770.520 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 770.133 ; gain = 511.688
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 770.520 ; gain = 512.738
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 770.133 ; gain = 511.688
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 770.520 ; gain = 512.738
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 770.133 ; gain = 511.688
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 770.520 ; gain = 512.738
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "max_tick" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "rx_done_tick" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -158,42 +154,46 @@ INFO: [Synth 8-5544] ROM "state_next" won't be mapped to Block RAM because addre
 INFO: [Synth 8-5544] ROM "s_next" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "n_next" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-802] inferred FSM for state register 'spi_state_reg' in module 'lc3_computer'
-WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:341]
+INFO: [Synth 8-5546] ROM "SPI_clk" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tick_low" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "CS" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "tick" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-327] inferring latch for variable 'spi_next_state_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:370]
-WARNING: [Synth 8-327] inferring latch for variable 'spi_next_state_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:370]
+WARNING: [Synth 8-327] inferring latch for variable 'spi_next_state_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:377]
+WARNING: [Synth 8-327] inferring latch for variable 'spi_next_state_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:377]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                     pre |                            00000 |                            00000
-                   start |                            00001 |                            00001
-                     sgl |                            00010 |                            00010
-                   d_two |                            00011 |                            00011
-                   d_one |                            00100 |                            00100
-                  d_zero |                            00101 |                            00101
-              sample_one |                            00110 |                            00110
-              sample_two |                            00111 |                            00111
-                 nullbit |                            01000 |                            01000
-                  b_nine |                            01001 |                            01001
-                 b_eight |                            01010 |                            01010
-                 b_seven |                            01011 |                            01011
-                   b_six |                            01100 |                            01100
-                  b_five |                            01101 |                            01101
-                  b_four |                            01110 |                            01110
-                 b_three |                            01111 |                            01111
-                   b_two |                            10000 |                            10000
-                   b_one |                            10001 |                            10001
-                  b_zero |                            10010 |                            10010
-                 b_zeroo |                            10011 |                            10011
+                  iSTATE |                            00000 |                         00000000
+                 iSTATE0 |                            00001 |                         00000001
+                 iSTATE1 |                            00010 |                         00000010
+                 iSTATE2 |                            00011 |                         00000011
+                 iSTATE3 |                            00100 |                         00000100
+                 iSTATE4 |                            00101 |                         00000101
+                 iSTATE5 |                            00110 |                         00000110
+                 iSTATE6 |                            00111 |                         00000111
+                 iSTATE7 |                            01000 |                         00001000
+                 iSTATE8 |                            01001 |                         00001001
+                 iSTATE9 |                            01010 |                         00001010
+                iSTATE10 |                            01011 |                         00001011
+                iSTATE11 |                            01100 |                         00001100
+                iSTATE12 |                            01101 |                         00001101
+                iSTATE13 |                            01110 |                         00001110
+                iSTATE14 |                            01111 |                         00001111
+                iSTATE15 |                            10000 |                         00010000
+                iSTATE16 |                            10001 |                         00010001
+                iSTATE17 |                            10010 |                         00010010
+                iSTATE18 |                            10011 |                         00010011
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'spi_state_reg' using encoding 'sequential' in module 'lc3_computer'
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_spi_next_state_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:370]
-WARNING: [Synth 8-327] inferring latch for variable 'spi_mux_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:531]
-WARNING: [Synth 8-327] inferring latch for variable 'mux_select_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:550]
-WARNING: [Synth 8-327] inferring latch for variable 'mem_en_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:312]
-WARNING: [Synth 8-327] inferring latch for variable 'spi_temp_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:457]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_spi_next_state_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:377]
+WARNING: [Synth 8-327] inferring latch for variable 'spi_mux_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:553]
+WARNING: [Synth 8-327] inferring latch for variable 'mux_select_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:576]
+WARNING: [Synth 8-327] inferring latch for variable 'spi_out_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:369]
+WARNING: [Synth 8-327] inferring latch for variable 'CS_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:370]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_en_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:318]
+WARNING: [Synth 8-327] inferring latch for variable 'spi_temp_reg' [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:465]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 770.133 ; gain = 511.688
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 770.520 ; gain = 512.738
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -227,10 +227,10 @@ Detailed RTL Component Info :
 	   4 Input     21 Bit        Muxes := 20    
 	   2 Input     21 Bit        Muxes := 80    
 	   2 Input     16 Bit        Muxes := 3     
-	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
 	   4 Input      8 Bit        Muxes := 3     
-	  20 Input      8 Bit        Muxes := 2     
-	  20 Input      5 Bit        Muxes := 2     
+	  20 Input      8 Bit        Muxes := 3     
+	  20 Input      5 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 1     
 	   5 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 4     
@@ -239,11 +239,11 @@ Detailed RTL Component Info :
 	   4 Input      3 Bit        Muxes := 2     
 	   5 Input      2 Bit        Muxes := 2     
 	   7 Input      2 Bit        Muxes := 10    
-	   2 Input      1 Bit        Muxes := 85    
+	   2 Input      1 Bit        Muxes := 89    
 	   4 Input      1 Bit        Muxes := 53    
 	   3 Input      1 Bit        Muxes := 4     
 	  11 Input      1 Bit        Muxes := 6     
-	  20 Input      1 Bit        Muxes := 5     
+	  20 Input      1 Bit        Muxes := 6     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -325,12 +325,13 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 4     
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 1     
-	  20 Input      8 Bit        Muxes := 2     
-	  20 Input      5 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	  20 Input      8 Bit        Muxes := 3     
+	  20 Input      5 Bit        Muxes := 1     
 	  11 Input      4 Bit        Muxes := 1     
 	  11 Input      1 Bit        Muxes := 6     
-	  20 Input      1 Bit        Muxes := 5     
-	   2 Input      1 Bit        Muxes := 40    
+	   2 Input      1 Bit        Muxes := 44    
+	  20 Input      1 Bit        Muxes := 6     
 Module BtnToggle 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -376,10 +377,11 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "Inst_lc3_computer/lc3_uart/baud_gen_unit/max_tick" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Inst_lc3_computer/SPI_clk" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Inst_lc3_computer/tick_low" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "lc3_debug_1/sys_halt_db/tick" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "lc3_debug_1/hand_clk_db/tick" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-6014] Unused sequential element lc3_debug_1/BtnToggle_1/counter_reg was removed.  [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/BtnToggle.vhd:32]
-WARNING: [Synth 8-6014] Unused sequential element Inst_lc3_computer/counter_reg was removed.  [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:341]
 INFO: [Synth 8-5546] ROM "tick" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "tick" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "tick" won't be mapped to RAM because it is too sparse
@@ -392,11 +394,19 @@ RAM Pipeline Warning: Read Address Register Found For RAM Inst_student_code/Inst
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (\Inst_student_code/Inst_lc3_computer/mem_en_reg )
 WARNING: [Synth 8-3332] Sequential element (Inst_student_code/Inst_lc3_computer/mem_en_reg) is unused and will be removed from module LC3Zybo_top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 770.133 ; gain = 511.688
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 770.520 ; gain = 512.738
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
+
+ROM:
++-------------+--------------------+---------------+----------------+
+|Module Name  | RTL Object         | Depth x Width | Implemented As | 
++-------------+--------------------+---------------+----------------+
+|student_code | Inst_lc3_computer/ | 32x5          | LUT            | 
++-------------+--------------------+---------------+----------------+
+
 
 Block RAM: Preliminary Mapping  Report (see note below)
 +------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
@@ -419,13 +429,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 813.461 ; gain = 555.016
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 813.070 ; gain = 555.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 814.727 ; gain = 556.281
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 814.355 ; gain = 556.574
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -450,8 +460,6 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3332] Sequential element (Inst_student_code/Inst_lc3_computer/counter_reg[7]) is unused and will be removed from module LC3Zybo_top.
-WARNING: [Synth 8-3332] Sequential element (Inst_student_code/Inst_lc3_computer/counter_reg[6]) is unused and will be removed from module LC3Zybo_top.
 INFO: [Synth 8-4480] The timing for the instance Inst_student_code/Inst_lc3_computer/lc3_mem/ram_reg_1_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance Inst_student_code/Inst_lc3_computer/lc3_mem/ram_reg_1_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance Inst_student_code/Inst_lc3_computer/lc3_mem/ram_reg_1_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
@@ -469,7 +477,7 @@ INFO: [Synth 8-4480] The timing for the instance Inst_student_code/Inst_lc3_comp
 INFO: [Synth 8-4480] The timing for the instance Inst_student_code/Inst_lc3_computer/lc3_mem/ram_reg_1_14 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance Inst_student_code/Inst_lc3_computer/lc3_mem/ram_reg_1_15 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 843.508 ; gain = 585.063
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 842.855 ; gain = 585.074
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -493,7 +501,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 843.508 ; gain = 585.063
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 842.855 ; gain = 585.074
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -506,7 +514,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 843.508 ; gain = 585.063
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 842.855 ; gain = 585.074
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -518,25 +526,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 843.508 ; gain = 585.063
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 842.855 ; gain = 585.074
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 843.508 ; gain = 585.063
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 842.855 ; gain = 585.074
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 843.508 ; gain = 585.063
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 842.855 ; gain = 585.074
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 843.508 ; gain = 585.063
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 842.855 ; gain = 585.074
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -561,8 +569,8 @@ Report Cell Usage:
 |5     |LUT2              |    22|
 |6     |LUT3              |    20|
 |7     |LUT4              |    77|
-|8     |LUT5              |   230|
-|9     |LUT6              |   210|
+|8     |LUT5              |   223|
+|9     |LUT6              |   223|
 |10    |RAMB36E1          |     1|
 |11    |RAMB36E1_1        |    16|
 |12    |RAMB36E1_10       |     1|
@@ -581,21 +589,21 @@ Report Cell Usage:
 |25    |RAMB36E1_8        |     1|
 |26    |RAMB36E1_9        |     1|
 |27    |FDCE              |    30|
-|28    |FDRE              |   362|
+|28    |FDRE              |   364|
 |29    |FDSE              |     4|
-|30    |LD                |    25|
+|30    |LD                |    27|
 |31    |IBUF              |    11|
-|32    |OBUF              |     8|
+|32    |OBUF              |     9|
 +------+------------------+------+
 
 Report Instance Areas: 
 +------+----------------------------------+-------------------------+------+
 |      |Instance                          |Module                   |Cells |
 +------+----------------------------------+-------------------------+------+
-|1     |top                               |                         |  1355|
+|1     |top                               |                         |  1366|
 |2     |  Inst_ZyboVIOSE_wrapper          |zyboviose_wrapper        |    34|
-|3     |  Inst_student_code               |student_code             |   690|
-|4     |    Inst_lc3_computer             |lc3_computer             |   474|
+|3     |  Inst_student_code               |student_code             |   700|
+|4     |    Inst_lc3_computer             |lc3_computer             |   484|
 |5     |      lc3_mem                     |memory                   |    40|
 |6     |      lc3_mux                     |lc3_wrapper_multiplexers |    73|
 |7     |      lc3_uart                    |uart                     |   282|
@@ -618,11 +626,11 @@ Report Instance Areas:
 |24    |  \my_debounce[3].Inst_debounce2  |debounce_6               |    76|
 +------+----------------------------------+-------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 843.508 ; gain = 585.063
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 842.855 ; gain = 585.074
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 13 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:31 . Memory (MB): peak = 843.508 ; gain = 259.676
-Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 843.508 ; gain = 585.063
+Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:29 . Memory (MB): peak = 842.855 ; gain = 255.855
+Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 842.855 ; gain = 585.074
 INFO: [Project 1-571] Translating synthesized netlist
 Release 14.7 - ngc2edif P_INT.20171106 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
@@ -659,27 +667,27 @@ ngc2edif: Total memory usage is 4329440 kilobytes
 Reading core file 'C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3.ngc' for (cell view 'lc3', library 'work')
 Parsing EDIF File [./.ngc2edfcache/lc3_ngc_deee1c02.edif]
 Finished Parsing EDIF File [./.ngc2edfcache/lc3_ngc_deee1c02.edif]
-INFO: [Netlist 29-17] Analyzing 2798 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 2800 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Xilinx ngc2edif P_INT.20171106
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 1662 instances were transformed.
+  A total of 1664 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 151 instances
   FD => FDRE: 1001 instances
   FDC => FDCE: 6 instances
   FDE => FDRE: 339 instances
   FDP => FDPE: 2 instances
   INV => LUT1: 121 instances
-  LD => LDCE: 25 instances
+  LD => LDCE: 27 instances
   MULT_AND => LUT2: 17 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-88 Infos, 50 Warnings, 0 Critical Warnings and 0 Errors encountered.
+93 Infos, 44 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:47 . Memory (MB): peak = 852.348 ; gain = 606.098
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:44 . Memory (MB): peak = 846.414 ; gain = 600.570
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.runs/synth_1/LC3Zybo_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file LC3Zybo_top_utilization_synth.rpt -pb LC3Zybo_top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.091 . Memory (MB): peak = 852.348 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Jun 18 14:46:45 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 846.414 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Jun 19 16:02:39 2018...

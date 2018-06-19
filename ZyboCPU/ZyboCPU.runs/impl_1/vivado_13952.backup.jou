@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Mon Jun 18 10:20:56 2018
-# Process ID: 10204
+# Start of session at: Tue Jun 19 15:53:37 2018
+# Process ID: 13952
 # Current directory: C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.runs/impl_1
 # Command line: vivado.exe -log LC3Zybo_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source LC3Zybo_top.tcl -notrace
 # Log file: C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/ZyboCPU/ZyboCPU.runs/impl_1/LC3Zybo_top.vdi

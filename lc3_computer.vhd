@@ -3,17 +3,7 @@
 -- Nexys3 boards.
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.numeric_std.all;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
--- library UNISIM;
--- use UNISIM.VComponents.all;
 
 entity lc3_computer is
    port (
@@ -60,7 +50,8 @@ entity lc3_computer is
       SPI_clk          : out std_logic;
       spi_status       : out std_logic;
       spi_data         : in std_logic;
-      spi_cs           : out std_logic      
+      spi_cs           : out std_logic;   
+      spi_debug        : out std_logic   
    );
 end lc3_computer;
 
@@ -123,6 +114,8 @@ architecture Behavioral of lc3_computer is
     constant P_STDIN_D    :   std_logic_vector(15 downto 0) := X"FE22";
     constant P_STDOUT_S   :   std_logic_vector(15 downto 0) := X"FE24";  -- Serial OUT (terminal  display)
     constant P_STDOUT_D   :   std_logic_vector(15 downto 0) := X"FE26";
+    
+    constant SPI_REG      :   std_logic_vector(15 downto 0) := X"FE34";
    
    
     -- MUX signals
@@ -165,9 +158,10 @@ architecture Behavioral of lc3_computer is
     signal shift_r_next           :   std_logic_vector(15 downto 0);
         
     -- SPI STATE SIGNALS
-    type spi_state_type is (PRE, START, SGL, D_TWO, D_ONE, D_ZERO, SAMPLE_ONE, SAMPLE_TWO, NULLBIT, B_NINE, B_EIGHT, B_SEVEN, 
-                            B_SIX, B_FIVE, B_FOUR, B_THREE, B_TWO, B_ONE, B_ZERO, B_ZEROO );
-    signal spi_state, spi_next_state    :   spi_state_type;
+    signal spi_state        :   std_logic_vector(7 downto 0);
+    signal spi_next_state   :   std_logic_vector(7 downto 0);
+    --type spi_state_type is (PRE, START, SGL, D_TWO, D_ONE, D_ZERO, SAMPLE_ONE, SAMPLE_TWO, NULLBIT, B_NINE, B_EIGHT, B_SEVEN, B_SIX, B_FIVE, B_FOUR, B_THREE, B_TWO, B_ONE, B_ZERO, B_ZEROO );
+    --signal spi_state, spi_next_state    :   spi_state_type;
     
     signal CS               :   std_logic;
     signal spi_counter      :   std_logic_vector(7 downto 0);
@@ -182,9 +176,11 @@ architecture Behavioral of lc3_computer is
     signal spi_out          :   std_logic;
     signal spi_in           :   std_logic;
     signal spi_temp         :   std_logic_vector(7 downto 0);
-    signal spi_mux          :   std_logic_vector(7 downto 0);
+    signal spi_mux          :   std_logic_vector(15 downto 0);
     
     signal ready            :   std_logic;
+    
+    signal debug            :   std_logic;
     
 ---------------------------------------------------------------------------------------
 -- END OF PREGENERATE CODE          ---------------------------------------------------
@@ -333,204 +329,224 @@ begin
 ---------------------------------------------------------------------------------------  
 -- TICK CLOCK                       ---------------------------------------------------
 --------------------------------------------------------------------------------------- 
-    process (clk, counter, tick, SPI_clk_signal)        
+   spi_clk <= spi_clk_signal;
+   
+   process(clk, SPI_clk_signal)
     begin
-        spi_clk <= spi_clk_signal;
-        
-        if (clk'event and clk = '1') then
-            if (counter < x"18") then
-                counter <= counter + '1';
-                tick <= '0';
-                tick_high <= '0';
-                tick_low <= '0';
-            else 
-                counter <= x"00";
-                tick <= '1';
-                --c_state <= c_next_state;
-                
-                if (SPI_clk_signal = '1') then
-                    SPI_clk_signal <= '0';
-                    tick_low <= '1';
+        if(clk'event and clk = '1') then
+            if(counter = X"19") then
+                if(SPI_clk_signal = '1') then
+                    SPI_clk <= '0';
+                    tick_LOW <= '1';
                 else
-                    SPI_clk_signal <= '1';
-                    tick_high <= '1';
-                end if;                
+                    SPI_clk <= '1';
+                    tick_HIGH <= '1';
+                end if;
+                counter <= X"00";
+            else
+                tick_HIGH <= '0';
+                tick_LOW <= '0';
+                counter <= std_logic_vector(unsigned(counter) + 1);
             end if;
-        end if;        
+        end if;    
     end process;
+   
    
 ---------------------------------------------------------------------------------------
 -- SPI                              ---------------------------------------------------
 ---------------------------------------------------------------------------------------    
-   
-   process (clk)
+   spi_in       <= spi_data; 
+   spi_status   <= spi_out;  
+   spi_cs       <= CS;
+   spi_debug    <= spi_state(0);
+       
+   process (clk, ready, spi_next_state)
    begin
-        if (clk'event AND clk = '1') then
+        if rising_edge(clk) then
             if ready = '1' then
                 spi_state <= spi_next_state;
                 ready <= '0';
             else
-                ready <= '1';
+                ready <= '1';                  
             end if;
         end if;            
    end process;
    
-   process (spi_state, tick_high, tick_low)
-    begin
-       
-       spi_in       <= spi_data; 
-       spi_status   <= spi_out;  
-       spi_cs       <= CS;
-               
+   process (spi_state, tick_high, tick_low, cs, spi_in, spi_next_state)
+    begin                      
         case (spi_state) is
-            when PRE =>                         -- BEFORE START
+            when X"00" =>
+                --debug <= '0';   
                 CS <= '1';
                 spi_out <= '0';
-                if (tick_low = '1') then       
-                    spi_next_state <= START;
+                if (tick_low = '1') then                       
+                    spi_next_state <= X"01";
                 end if;
              
-            when START =>                       -- START
+            when X"01" =>
+               --debug <= '1';  
                CS <= '1';
                spi_out <= '0';
-               if (tick_low = '1') then    
-                   spi_next_state <= SGL;
+               if (tick_low = '1') then                     
+                   spi_next_state <= X"02";
                end if;      
             
-            when SGL =>                         -- SGL
+            when X"02" =>
+                --debug <= '0';    
                 CS <= '0';
                 spi_out <= '1';
-                if (tick_low = '1') then    
-                   spi_next_state <= D_TWO;
+                if (tick_low = '1') then                   
+                   spi_next_state <= X"03";
                 end if; 
                
-            when D_TWO =>                       -- D2
+            when X"03" =>
+                --debug <= '1'; 
                 CS <= '0';
                 spi_out <= '1';
-                if (tick_low = '1') then    
-                   spi_next_state <= D_ONE;
+                if (tick_low = '1') then                      
+                   spi_next_state <= X"04";
                 end if; 
             
-            when D_ONE =>                       -- D1
+            when X"04" =>
+                --debug <= '0';   
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_low = '1') then    
-                   spi_next_state <= D_ZERO;
+                if (tick_low = '1') then                    
+                   spi_next_state <= X"05";
                 end if; 
                 
-            when D_ZERO =>                      -- D0
+            when X"05" =>
+                --debug <= '1';  
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_low = '1') then    
-                   spi_next_state <= SAMPLE_ONE;
+                if (tick_low = '1') then                     
+                   spi_next_state <= X"06";
                 end if; 
             
-            when SAMPLE_ONE =>
+            when X"06" =>
+                --debug <= '0';  
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_low = '1') then    
-                   spi_next_state <= SAMPLE_TWO;
+                if (tick_low = '1') then                     
+                   spi_next_state <= X"07";
                 end if; 
             
-            when SAMPLE_TWO =>
+            when X"07" =>
+                --debug <= '1';
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_low = '1') then    
-                   spi_next_state <= NULLBIT;
+                if (tick_low = '1') then                       
+                   spi_next_state <= X"08";
                 end if; 
-                
-            when NULLBIT =>
+                            
+            when X"08" =>
+                --debug <= '0';   
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then    
-                   spi_next_state <= B_NINE;
+                if (tick_high = '1') then                    
+                   spi_next_state <= X"09";
                 end if;
             
-            when B_NINE =>
+            when X"09" =>
+                --debug <= '1';
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then    
-                   spi_next_state <= B_EIGHT;
+                if (tick_high = '1') then                     
+                   spi_temp(7) <= spi_in;  
+                   spi_next_state <= X"0A";
                 end if;
             
-            when B_EIGHT =>
-                spi_temp(7) <= spi_in;
+            when X"0A" =>                
+                --debug <= '0';
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then    
-                   spi_next_state <= B_SEVEN;
+                if (tick_high = '1') then                      
+                   spi_temp(6) <= spi_in; 
+                   spi_next_state <= X"0B";
                 end if;
             
-            when B_SEVEN =>
-                spi_temp(6) <= spi_in;
+            when X"0B" =>                
+                --debug <= '1';
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then    
-                   spi_next_state <= B_SIX;
+                if (tick_high = '1') then                    
+                   spi_temp(5) <= spi_in;   
+                   spi_next_state <= X"0C";
                 end if;
                 
-            when B_SIX =>
-                spi_temp(5) <= spi_in;
+            when X"0C" =>                
+                --debug <= '0';  
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then    
-                   spi_next_state <= B_FIVE;
+                if (tick_high = '1') then                    
+                   spi_temp(4) <= spi_in;                                
+                   spi_next_state <= X"0D";
                 end if;
             
-            when B_FIVE =>
-                spi_temp(4) <= spi_in;
+            when X"0D" =>
+                --debug <= '1';
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then    
-                   spi_next_state <= B_FOUR;
+                if (tick_high = '1') then                     
+                   spi_temp(3) <= spi_in; 
+                   spi_next_state <= X"0E";
                 end if;
                 
-            when B_FOUR =>
-                spi_temp(3) <= spi_in;
+            when X"0E" =>                
+                --debug <= '0'; 
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then    
-                   spi_next_state <= B_THREE;
+                if (tick_high = '1') then                      
+                   spi_temp(2) <= spi_in;
+                   spi_next_state <= X"0F";
                 end if;
                 
-            when B_THREE =>
-                spi_temp(2) <= spi_in;
+            when X"0F" =>                
+                --debug <= '0';
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then    
-                   spi_next_state <= B_TWO;
+                if (tick_high = '1') then                      
+                   spi_temp(1) <= spi_in; 
+                   spi_next_state <= X"10";
                 end if;
                 
-            when B_TWO =>
-                spi_temp(1) <= spi_in;
+            when X"10" =>                
+                --debug <= '0';
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then    
-                   spi_next_state <= B_ONE;
+                if (tick_high = '1') then  
+                   spi_temp(0) <= spi_in;  
+                   spi_next_state <= X"11";
                 end if;
                 
-            when B_ONE =>
-                spi_temp(0) <= spi_in;
+            when X"11" =>                
+                --debug <= '0';  
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then    
-                   spi_next_state <= B_ZERO;
+                if (tick_high = '1') then                     
+                   spi_next_state <= X"12";
                 end if;
                 
-            when B_ZERO =>
+            when X"12" =>
+                --debug <= '0';
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then    
-                   spi_next_state <= B_ZEROO;
+                if (tick_high = '1') then                       
+                   spi_next_state <= X"13";
                 end if;
                 
-            when B_ZEROO =>
+            when X"13" =>
+                --debug <= '0';
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then 
-                   spi_mux <= spi_temp;
-                   spi_next_state <= PRE;
+                if (tick_high = '1') then                    
+                   spi_mux <=  x"00" & spi_temp;
+                   spi_next_state <= X"00";
                 end if;
+            
+            when others =>
+            
+            
         end case;
     end process;
 ---------------------------------------------------------------------------------------
@@ -581,7 +597,7 @@ begin
             end if;                
         
         -- SPI SIGNALS
-        when 16#FE32# => mux_select <= "1000";
+        when 16#FE34# => mux_select <= "1000";
            
         when others => 
             mem_en <= '1'; 
@@ -608,7 +624,7 @@ end process;
             when "0101" =>  data_in <=  x"00" & p_rx_data;                          -- Reads Data from FIFO.
             when "0110" =>  data_in <= (NOT p_tx_full) & "000" & x"000";    -- Reads TX_FULL signal from virtual UART
             
-            when "1000" =>  data_in <= x"00" & spi_mux;
+            when "1000" =>  data_in <= spi_mux;
             
             when others =>  data_in <= ram_out;                             -- Else, no data is sent through the mux
         end case;

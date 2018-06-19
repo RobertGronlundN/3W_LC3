@@ -1,0 +1,16 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_wrapper_tristates.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity lc3_wrapper_tristates
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_wrapper_multiplexers.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity lc3_wrapper_multiplexers
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/debounce.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity debounce
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/BtnToggle.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BtnToggle
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_debug.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity lc3_debug
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity lc3_computer
+ERROR: [VRFC 10-149] 'memory' is not compiled in library xil_defaultlib [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:309]
+ERROR: [VRFC 10-149] 'uart' is not compiled in library xil_defaultlib [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:324]
+ERROR: [VRFC 10-1504] unit behavioral ignored due to previous errors [C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd:68]
+INFO: [VRFC 10-240] VHDL file C:/Users/Robert/Desktop/2. Semester/Digital Systems/New folder/lc3_computer.vhd ignored due to errors
