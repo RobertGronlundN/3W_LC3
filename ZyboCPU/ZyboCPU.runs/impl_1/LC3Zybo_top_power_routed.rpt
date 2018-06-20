@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Tue Jun 19 16:27:02 2018
+| Date             : Wed Jun 20 11:44:56 2018
 | Host             : DESKTOP-9ODFEVG running 64-bit major release  (build 9200)
 | Command          : report_power -file LC3Zybo_top_power_routed.rpt -pb LC3Zybo_top_power_summary_routed.pb -rpx LC3Zybo_top_power_routed.rpx
 | Design           : LC3Zybo_top
@@ -54,14 +54,14 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.005 |        5 |       --- |             --- |
 | Slice Logic             |     0.009 |     5936 |       --- |             --- |
-|   LUT as Logic          |     0.007 |     3258 |     17600 |           18.51 |
+|   LUT as Logic          |     0.007 |     3259 |     17600 |           18.52 |
 |   Register              |    <0.001 |     2036 |     35200 |            5.78 |
 |   CARRY4                |    <0.001 |      208 |      4400 |            4.73 |
 |   LUT as Shift Register |    <0.001 |       39 |      6000 |            0.65 |
 |   F7/F8 Muxes           |    <0.001 |      123 |     17600 |            0.70 |
 |   BUFG                  |    <0.001 |        5 |        32 |           15.63 |
 |   Others                |     0.000 |      203 |       --- |             --- |
-| Signals                 |     0.010 |     4499 |       --- |             --- |
+| Signals                 |     0.010 |     4502 |       --- |             --- |
 | Block RAM               |     0.022 |       32 |        60 |           53.33 |
 | PLL                     |     0.106 |        1 |         2 |           50.00 |
 | DSPs                    |    <0.001 |        1 |        80 |            1.25 |

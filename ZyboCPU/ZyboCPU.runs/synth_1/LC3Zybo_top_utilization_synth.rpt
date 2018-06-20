@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue Jun 19 16:25:39 2018
+| Date         : Wed Jun 20 11:43:33 2018
 | Host         : DESKTOP-9ODFEVG running 64-bit major release  (build 9200)
 | Command      : report_utilization -file LC3Zybo_top_utilization_synth.rpt -pb LC3Zybo_top_utilization_synth.pb
 | Design       : LC3Zybo_top
@@ -151,14 +151,14 @@ Table of Contents
 |  Ref Name | Used |  Functional Category |
 +-----------+------+----------------------+
 | FDRE      | 1704 |         Flop & Latch |
-| LUT6      | 1188 |                  LUT |
-| LUT5      |  915 |                  LUT |
+| LUT6      | 1189 |                  LUT |
+| LUT5      |  917 |                  LUT |
 | LUT3      |  417 |                  LUT |
-| LUT1      |  371 |                  LUT |
+| LUT1      |  370 |                  LUT |
 | FDCE      |  340 |         Flop & Latch |
-| LUT4      |  306 |                  LUT |
-| LUT2      |  209 |                  LUT |
+| LUT4      |  305 |                  LUT |
 | CARRY4    |  209 |           CarryLogic |
+| LUT2      |  208 |                  LUT |
 | MUXF7     |  107 |                MuxFx |
 | SRLC16E   |   54 |   Distributed Memory |
 | RAMB36E1  |   32 |         Block Memory |

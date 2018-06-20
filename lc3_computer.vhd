@@ -476,6 +476,14 @@ begin
                 spi_out <= '0';
                 if (tick_high = '1') then                    
                    spi_mux <=  x"00" & spi_temp;
+                   spi_next_state <= X"14";
+                end if;
+                
+            when X"14" =>
+                --debug <= '0';
+                CS <= '1';
+                spi_out <= '0';
+                if (tick_high = '1') then   
                    spi_next_state <= X"00";
                 end if;
             
