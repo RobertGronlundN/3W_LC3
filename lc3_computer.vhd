@@ -153,7 +153,9 @@ architecture Behavioral of lc3_computer is
     signal spi_out          :   std_logic;
     signal spi_in           :   std_logic;
     signal spi_temp         :   std_logic_vector(7 downto 0);
-    signal spi_mux          :   std_logic_vector(15 downto 0);
+    signal spi_mux_I        :   std_logic_vector(15 downto 0);
+    signal spi_mux_II       :   std_logic_vector(15 downto 0);
+    signal input_select     :   std_logic;
     signal debug            :   std_logic;
 	
 begin
@@ -176,9 +178,9 @@ begin
     led(7) <= '0'; 
 
     --Physical leds on the Zybo board (active high)
-    pled(0) <= NOT rx_empty;
-    pled(1) <= NOT tx_full;
-    pled(2) <= '0';
+    pled(0) <= NOT p_rx_empty;
+    pled(1) <= NOT p_tx_full;
+    pled(2) <= input_select;
    
     -- All the input signals comming to the FPGA should be used at least once otherwise we get 
     -- synthesis warnings. The following lines of VHDL code are meant to remove those warnings. 
@@ -256,8 +258,8 @@ begin
         wr_uart =>  p_tx_wr,
         r_data  =>  p_rx_data,
         w_data  =>  p_tx_data,
-        rx      =>  rx,             -- Når ledning inkluderes, tilslut pin
-        tx      =>  tx,             -- Når ledning inkluderes, tilslut pin
+        rx      =>  rx,             -- Naar ledning inkluderes, tilslut pin
+        tx      =>  tx,             -- Naar ledning inkluderes, tilslut pin
         tx_full =>  p_tx_full,
         rx_empty=>  p_rx_empty        
         );
@@ -290,10 +292,10 @@ begin
 ---------------------------------------------------------------------------------------
 -- SPI                              ---------------------------------------------------
 ---------------------------------------------------------------------------------------    
-   spi_in       <= spi_data; 
-   spi_status   <= spi_out;  
-   spi_cs       <= CS;
-   spi_debug    <= spi_state(0);
+--   spi_in       <= spi_data; 
+--   spi_status   <= spi_out;  
+--   spi_cs       <= CS;
+--   spi_debug    <= spi_state(0);
        
    process (clk, ready, spi_next_state)
    begin
@@ -306,84 +308,82 @@ begin
             end if;
         end if;            
    end process;
-   
-   process (spi_state, tick_high, tick_low, cs, spi_in, spi_next_state)
-    begin                      
+      
+   process (spi_state, tick_high, tick_low, cs, spi_in, spi_next_state, input_select)
+    begin      
+        spi_in       <= spi_data; 
+        spi_status   <= spi_out;  
+        spi_cs       <= CS;
+        spi_debug    <= spi_state(0);    
+          
         case (spi_state) is
-            when X"00" =>
-                --debug <= '0';   
+            when X"00" =>           -- tSCH
                 CS <= '1';
                 spi_out <= '0';
-                if (tick_low = '1') then                       
+                if (tick_low = '1') then
                     spi_next_state <= X"01";
                 end if;
              
-            when X"01" =>
-               --debug <= '1';  
+            when X"01" =>           -- START
                CS <= '1';
                spi_out <= '0';
-               if (tick_low = '1') then                     
+               if (tick_low = '1') then
                    spi_next_state <= X"02";
                end if;      
             
-            when X"02" =>
-                --debug <= '0';    
+            when X"02" =>           -- SGL
                 CS <= '0';
                 spi_out <= '1';
                 if (tick_low = '1') then                   
                    spi_next_state <= X"03";
                 end if; 
                
-            when X"03" =>
-                --debug <= '1'; 
+            when X"03" =>           -- D2
                 CS <= '0';
                 spi_out <= '1';
                 if (tick_low = '1') then                      
                    spi_next_state <= X"04";
                 end if; 
             
-            when X"04" =>
-                --debug <= '0';   
+            when X"04" =>           -- D1
                 CS <= '0';
                 spi_out <= '0';
                 if (tick_low = '1') then                    
                    spi_next_state <= X"05";
                 end if; 
                 
-            when X"05" =>
-                --debug <= '1';  
+            when X"05" =>           -- D0
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_low = '1') then                     
-                   spi_next_state <= X"06";
+                if (tick_low = '1') then 
+                    --spi_out <= '1';
+                    if input_select = '1' then spi_out <= '1'; else spi_out <= '0'; end if;
+                    spi_next_state <= X"06";
                 end if; 
             
-            when X"06" =>
-                --debug <= '0';  
+            when X"06" =>           -- T SAMPLE I
                 CS <= '0';
-                spi_out <= '0';
+                --spi_out <= '1';
+                if input_select = '1' then spi_out <= '1'; else spi_out <= '0'; end if;
                 if (tick_low = '1') then                     
                    spi_next_state <= X"07";
                 end if; 
             
-            when X"07" =>
-                --debug <= '1';
+            when X"07" =>           -- T SAMPLE II
                 CS <= '0';
                 spi_out <= '0';
                 if (tick_low = '1') then                       
                    spi_next_state <= X"08";
                 end if; 
                             
-            when X"08" =>
-                --debug <= '0';   
+            when X"08" =>           -- NULL BIT
                 CS <= '0';
                 spi_out <= '0';
                 if (tick_high = '1') then                    
                    spi_next_state <= X"09";
                 end if;
             
-            when X"09" =>
-                --debug <= '1';
+            when X"09" =>           -- B9
                 CS <= '0';
                 spi_out <= '0';
                 if (tick_high = '1') then                     
@@ -391,8 +391,7 @@ begin
                    spi_next_state <= X"0A";
                 end if;
             
-            when X"0A" =>                
-                --debug <= '0';
+            when X"0A" =>           -- B8     
                 CS <= '0';
                 spi_out <= '0';
                 if (tick_high = '1') then                      
@@ -400,8 +399,7 @@ begin
                    spi_next_state <= X"0B";
                 end if;
             
-            when X"0B" =>                
-                --debug <= '1';
+            when X"0B" =>           -- B7 
                 CS <= '0';
                 spi_out <= '0';
                 if (tick_high = '1') then                    
@@ -409,8 +407,7 @@ begin
                    spi_next_state <= X"0C";
                 end if;
                 
-            when X"0C" =>                
-                --debug <= '0';  
+            when X"0C" =>           -- B6      
                 CS <= '0';
                 spi_out <= '0';
                 if (tick_high = '1') then                    
@@ -418,8 +415,7 @@ begin
                    spi_next_state <= X"0D";
                 end if;
             
-            when X"0D" =>
-                --debug <= '1';
+            when X"0D" =>           -- B5
                 CS <= '0';
                 spi_out <= '0';
                 if (tick_high = '1') then                     
@@ -427,8 +423,7 @@ begin
                    spi_next_state <= X"0E";
                 end if;
                 
-            when X"0E" =>                
-                --debug <= '0'; 
+            when X"0E" =>           -- B4
                 CS <= '0';
                 spi_out <= '0';
                 if (tick_high = '1') then                      
@@ -436,8 +431,7 @@ begin
                    spi_next_state <= X"0F";
                 end if;
                 
-            when X"0F" =>                
-                --debug <= '0';
+            when X"0F" =>           -- B3
                 CS <= '0';
                 spi_out <= '0';
                 if (tick_high = '1') then                      
@@ -445,8 +439,7 @@ begin
                    spi_next_state <= X"10";
                 end if;
                 
-            when X"10" =>                
-                --debug <= '0';
+            when X"10" =>           -- B2
                 CS <= '0';
                 spi_out <= '0';
                 if (tick_high = '1') then  
@@ -454,8 +447,7 @@ begin
                    spi_next_state <= X"11";
                 end if;
                 
-            when X"11" =>                
-                --debug <= '0';  
+            when X"11" =>           -- B1
                 CS <= '0';
                 spi_out <= '0';
                 if (tick_high = '1') then                     
@@ -463,27 +455,30 @@ begin
                 end if;
                 
             when X"12" =>
-                --debug <= '0';
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then                       
+                if (tick_high = '1') then
                    spi_next_state <= X"13";
                 end if;
                 
-            when X"13" =>
-                --debug <= '0';
+            when X"13" =>               -- B0
                 CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then                    
-                   spi_mux <=  x"00" & spi_temp;
+                if (tick_low = '1') then   
                    spi_next_state <= X"14";
                 end if;
                 
-            when X"14" =>
-                --debug <= '0';
-                CS <= '1';
+            when X"14" =>               -- TCSH
+                CS <= '0';
                 spi_out <= '0';
-                if (tick_high = '1') then   
+                if (tick_low = '1') then  
+                    if (input_select = '0' ) then --and ready = '1'
+                      spi_mux_I <=  x"00" & spi_temp;
+                      input_select <= '1';
+                    elsif (input_select = '1' ) then --and ready = '1'
+                      spi_mux_II <=   x"00" & spi_temp;
+                      input_select <= '0';
+                   end if; 
                    spi_next_state <= X"00";
                 end if;
             
@@ -526,10 +521,10 @@ begin
         -- STD IN PHYSICAL UART SIGNALS
         when 16#FE20# => mux_select <= X"4";      -- Enables mux output to be the status signal from FIFO STD IN
         when 16#FE22# => 
-            if p_rx_empty = '0' then
+           if p_rx_empty = '0' then
                 p_rx_rd <= RE;
                 mux_select <= X"5";
-            end if;
+           end if;
         -- STD OUT PHYSICAL UART SIGNALS
         when 16#FE24# => mux_select <= X"6";      -- Enables mux output to be the status signal from FIFO STD OUT
         when 16#FE26# =>
@@ -539,6 +534,7 @@ begin
         
         -- SPI SIGNALS
         when 16#FE34# => mux_select <= X"8";
+        when 16#FE35# => mux_select <= X"9";
            
         when others => 
             mem_en <= '1'; 
@@ -563,7 +559,8 @@ end process;
             when X"5" =>  data_in <=  x"00" & p_rx_data;                          -- Reads Data from FIFO.
             when X"6" =>  data_in <= (NOT p_tx_full) & "000" & x"000";    -- Reads TX_FULL signal from virtual UART            
         --- SPI
-            when X"8" =>  data_in <= spi_mux;
+            when X"8" =>  data_in <= spi_mux_I;
+            when X"9" =>  data_in <= spi_mux_II;
             
             when others =>  data_in <= ram_out;                             -- Else, no data is sent through the mux
         end case;

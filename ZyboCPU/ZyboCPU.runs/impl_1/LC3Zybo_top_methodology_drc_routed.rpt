@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Wed Jun 20 11:44:54 2018
+| Date         : Wed Jun 20 17:20:02 2018
 | Host         : DESKTOP-9ODFEVG running 64-bit major release  (build 9200)
 | Command      : report_methodology -file LC3Zybo_top_methodology_drc_routed.rpt -pb LC3Zybo_top_methodology_drc_routed.pb -rpx LC3Zybo_top_methodology_drc_routed.rpx
 | Design       : LC3Zybo_top
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 256
+             Violations found: 265
 +-----------+----------+-----------------------------+------------+
 | Rule      | Severity | Description                 | Violations |
 +-----------+----------+-----------------------------+------------+
 | TIMING-17 | Warning  | Non-clocked sequential cell | 229        |
-| TIMING-20 | Warning  | Non-clocked latch           | 27         |
+| TIMING-20 | Warning  | Non-clocked latch           | 36         |
 +-----------+----------+-----------------------------+------------+
 
 2. REPORT DETAILS
@@ -1210,105 +1210,150 @@ Related violations: <none>
 
 TIMING-20#7 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/mux_select_reg[0] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/mux_select_reg[0]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/input_select_reg cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/input_select_reg/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#8 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/mux_select_reg[1] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/mux_select_reg[1]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/mux_select_reg[0] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/mux_select_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#9 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/mux_select_reg[2] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/mux_select_reg[2]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/mux_select_reg[1] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/mux_select_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#10 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/mux_select_reg[3] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/mux_select_reg[3]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/mux_select_reg[2] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/mux_select_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#11 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_mux_reg[0] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_reg[0]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/mux_select_reg[3] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/mux_select_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#12 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_mux_reg[1] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_reg[1]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[0] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#13 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_mux_reg[2] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_reg[2]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[1] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#14 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_mux_reg[3] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_reg[3]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[2] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#15 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_mux_reg[4] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_reg[4]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[3] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#16 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_mux_reg[5] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_reg[5]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[4] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#17 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_mux_reg[6] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_reg[6]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[5] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#18 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_mux_reg[7] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_reg[7]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[6] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#19 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_out_reg cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_out_reg/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[7] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_II_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#20 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[0] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[0]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[0] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#21 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[1] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[1]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[1] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#22 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[2] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[2]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[2] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#23 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[3] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[3]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[3] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#24 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[4] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[4]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[4] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#25 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[5] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[5]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[5] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#26 Warning
 Non-clocked latch  
-The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[6] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[6]/G is not reached by a timing clock
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[6] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#27 Warning
+Non-clocked latch  
+The latch Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[7] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_mux_I_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#28 Warning
+Non-clocked latch  
+The latch Inst_student_code/Inst_lc3_computer/spi_out_reg cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_out_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#29 Warning
+Non-clocked latch  
+The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[0] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#30 Warning
+Non-clocked latch  
+The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[1] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#31 Warning
+Non-clocked latch  
+The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[2] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#32 Warning
+Non-clocked latch  
+The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[3] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#33 Warning
+Non-clocked latch  
+The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[4] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#34 Warning
+Non-clocked latch  
+The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[5] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#35 Warning
+Non-clocked latch  
+The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[6] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#36 Warning
 Non-clocked latch  
 The latch Inst_student_code/Inst_lc3_computer/spi_temp_reg[7] cannot be properly analyzed as its control pin Inst_student_code/Inst_lc3_computer/spi_temp_reg[7]/G is not reached by a timing clock
 Related violations: <none>
