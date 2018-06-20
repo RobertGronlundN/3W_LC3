@@ -198,7 +198,7 @@ begin
     sink <= sink_sw or sink_psw or sink_btn or sink_pbtn or sink_uart or p_sink_uart;    -- WE HAVE ADDED P_SINK_UART
    
     reset <= '0';
-    
+        
 ---------------------------------------------------------------------------------------
 -- END OF PREGENERATE CODE          ---------------------------------------------------
 ---------------------------------------------------------------------------------------
@@ -310,7 +310,7 @@ begin
    end process;
       
    process (spi_state, tick_high, tick_low, cs, spi_in, spi_next_state, input_select)
-    begin      
+    begin     
         spi_in       <= spi_data; 
         spi_status   <= spi_out;  
         spi_cs       <= CS;
@@ -472,12 +472,13 @@ begin
                 CS <= '0';
                 spi_out <= '0';
                 if (tick_low = '1') then  
-                    if (input_select = '0' ) then --and ready = '1'
+                    if (input_select = '1' and ready = '1') then --
                       spi_mux_I <=  x"00" & spi_temp;
-                      input_select <= '1';
-                    elsif (input_select = '1' ) then --and ready = '1'
-                      spi_mux_II <=   x"00" & spi_temp;
                       input_select <= '0';
+                    --elsif (input_select = '1' and ready = '1') then
+                    elsif (ready = '1') then
+                      spi_mux_II <=   x"00" & spi_temp;
+                      input_select <= '1';
                    end if; 
                    spi_next_state <= X"00";
                 end if;
